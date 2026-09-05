@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Admin allowlist — keep this in sync by hand with src/config/admins.js.
+    // There's no server-side function on the free Spark plan to share a
+    // single source of truth, so both copies must be updated together.
+    function isAdmin() {
+      return request.auth != null &&
+        request.auth.token.email_verified == true &&
+        request.auth.token.email in [
+          'udii.idan@gmail.com',
+          'yigal.sharoni@gmail.com' // TODO: replace with Yigal's real email
+        ];
+    }
+
+    // ─── Rainfall readings ──────────────────────────────────────────────
+    // One doc per date (doc id = "YYYY-MM-DD"). `source` distinguishes
+    // 'whatsapp-import' | 'manual' (daily admin form) | 'historical'
+    // (pre-2021 data typed in later from Yigal's 1991 paper records).
+    match /readings/{date} {
+      allow read: if true; // public page needs no auth
+      allow write: if isAdmin();
+    }
+
+    // Deny everything else by default.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

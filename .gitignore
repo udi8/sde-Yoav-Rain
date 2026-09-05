@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables — never commit these
+.env
+.env.local
+.env.*.local
+
+# Firebase
+.firebaserc
+.firebase/
+*adminsdk*.json
+firebase-debug.log
+firestore-debug.log
+
+# Raw WhatsApp export — contains personal chat unrelated to rainfall data.
+# Only the parsed output (scripts/data/readings-import.json) is committed.
+_chat.txt
+scripts/data/_chat*.txt
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

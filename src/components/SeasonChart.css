@@ -1,0 +1,15 @@
+.season-chart {
+  padding: 24px 12px 16px;
+}
+
+.season-chart-header {
+  padding: 0 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.season-chart-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+}

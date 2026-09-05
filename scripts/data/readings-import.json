@@ -1,0 +1,1991 @@
+[
+  {
+    "date": "2021-11-21",
+    "season": "2021-2022",
+    "amountMm": 20.5,
+    "cumulativeMm": 43.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-11-21T08:01:12"
+  },
+  {
+    "date": "2021-12-02",
+    "season": "2021-2022",
+    "amountMm": 10,
+    "cumulativeMm": 53.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-02T08:15:25"
+  },
+  {
+    "date": "2021-12-09",
+    "season": "2021-2022",
+    "amountMm": 11.5,
+    "cumulativeMm": 65,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-09T07:58:57"
+  },
+  {
+    "date": "2021-12-17",
+    "season": "2021-2022",
+    "amountMm": 8,
+    "cumulativeMm": 73,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-17T08:43:06"
+  },
+  {
+    "date": "2021-12-18",
+    "season": "2021-2022",
+    "amountMm": 19.5,
+    "cumulativeMm": 92.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-18T08:02:38"
+  },
+  {
+    "date": "2021-12-21",
+    "season": "2021-2022",
+    "amountMm": 7,
+    "cumulativeMm": 99.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-21T07:56:53"
+  },
+  {
+    "date": "2021-12-23",
+    "season": "2021-2022",
+    "amountMm": 5,
+    "cumulativeMm": 104.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-23T08:03:26"
+  },
+  {
+    "date": "2021-12-24",
+    "season": "2021-2022",
+    "amountMm": 11,
+    "cumulativeMm": 115.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-24T08:01:03"
+  },
+  {
+    "date": "2021-12-30",
+    "season": "2021-2022",
+    "amountMm": 5,
+    "cumulativeMm": 120.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-30T08:04:11"
+  },
+  {
+    "date": "2021-12-31",
+    "season": "2021-2022",
+    "amountMm": 1,
+    "cumulativeMm": 121.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2021-12-31T08:00:40"
+  },
+  {
+    "date": "2022-01-01",
+    "season": "2021-2022",
+    "amountMm": 3.5,
+    "cumulativeMm": 125,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-01T07:57:12"
+  },
+  {
+    "date": "2022-01-02",
+    "season": "2021-2022",
+    "amountMm": 1.5,
+    "cumulativeMm": 126.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-02T08:00:29"
+  },
+  {
+    "date": "2022-01-03",
+    "season": "2021-2022",
+    "amountMm": 7.5,
+    "cumulativeMm": 134,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-03T08:08:45"
+  },
+  {
+    "date": "2022-01-04",
+    "season": "2021-2022",
+    "amountMm": 0.5,
+    "cumulativeMm": 134.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-04T07:13:52"
+  },
+  {
+    "date": "2022-01-14",
+    "season": "2021-2022",
+    "amountMm": 21,
+    "cumulativeMm": 155.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-14T08:01:44"
+  },
+  {
+    "date": "2022-01-15",
+    "season": "2021-2022",
+    "amountMm": 33.5,
+    "cumulativeMm": 189,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-15T08:04:17"
+  },
+  {
+    "date": "2022-01-16",
+    "season": "2021-2022",
+    "amountMm": 53,
+    "cumulativeMm": 242,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-16T08:02:42"
+  },
+  {
+    "date": "2022-01-17",
+    "season": "2021-2022",
+    "amountMm": 23,
+    "cumulativeMm": 265,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-17T07:59:19"
+  },
+  {
+    "date": "2022-01-20",
+    "season": "2021-2022",
+    "amountMm": 4.5,
+    "cumulativeMm": 269.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-20T07:53:11"
+  },
+  {
+    "date": "2022-01-24",
+    "season": "2021-2022",
+    "amountMm": 16,
+    "cumulativeMm": 285.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-24T08:04:42"
+  },
+  {
+    "date": "2022-01-25",
+    "season": "2021-2022",
+    "amountMm": 12,
+    "cumulativeMm": 297.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-25T08:32:15"
+  },
+  {
+    "date": "2022-01-27",
+    "season": "2021-2022",
+    "amountMm": 54,
+    "cumulativeMm": 351.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-27T08:00:04"
+  },
+  {
+    "date": "2022-01-28",
+    "season": "2021-2022",
+    "amountMm": 26,
+    "cumulativeMm": 377.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-28T08:07:11"
+  },
+  {
+    "date": "2022-01-29",
+    "season": "2021-2022",
+    "amountMm": 17.5,
+    "cumulativeMm": 395,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-01-29T08:18:23"
+  },
+  {
+    "date": "2022-02-01",
+    "season": "2021-2022",
+    "amountMm": 2.5,
+    "cumulativeMm": 397.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-01T07:52:09"
+  },
+  {
+    "date": "2022-02-05",
+    "season": "2021-2022",
+    "amountMm": 13.5,
+    "cumulativeMm": 411,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-05T08:00:30"
+  },
+  {
+    "date": "2022-02-06",
+    "season": "2021-2022",
+    "amountMm": 8,
+    "cumulativeMm": 419,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-06T07:46:23"
+  },
+  {
+    "date": "2022-02-10",
+    "season": "2021-2022",
+    "amountMm": 5,
+    "cumulativeMm": 424,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-10T08:00:47"
+  },
+  {
+    "date": "2022-02-11",
+    "season": "2021-2022",
+    "amountMm": 20,
+    "cumulativeMm": 444,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-11T07:53:27"
+  },
+  {
+    "date": "2022-02-20",
+    "season": "2021-2022",
+    "amountMm": 8,
+    "cumulativeMm": 452,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-20T07:59:47"
+  },
+  {
+    "date": "2022-02-26",
+    "season": "2021-2022",
+    "amountMm": 15,
+    "cumulativeMm": 467,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-26T08:00:54"
+  },
+  {
+    "date": "2022-02-27",
+    "season": "2021-2022",
+    "amountMm": 1.5,
+    "cumulativeMm": 468.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-02-27T07:59:29"
+  },
+  {
+    "date": "2022-03-04",
+    "season": "2021-2022",
+    "amountMm": 3.5,
+    "cumulativeMm": 472,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-04T08:06:00"
+  },
+  {
+    "date": "2022-03-09",
+    "season": "2021-2022",
+    "amountMm": 1,
+    "cumulativeMm": 473,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-09T07:55:44"
+  },
+  {
+    "date": "2022-03-11",
+    "season": "2021-2022",
+    "amountMm": 14,
+    "cumulativeMm": 487,
+    "note": "חצינו את רף הממוצע הרב שנתי (485)",
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-11T08:05:21"
+  },
+  {
+    "date": "2022-03-12",
+    "season": "2021-2022",
+    "amountMm": 9,
+    "cumulativeMm": 496,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-12T08:00:30"
+  },
+  {
+    "date": "2022-03-13",
+    "season": "2021-2022",
+    "amountMm": 3,
+    "cumulativeMm": 499,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-13T07:36:29"
+  },
+  {
+    "date": "2022-03-14",
+    "season": "2021-2022",
+    "amountMm": 1,
+    "cumulativeMm": 500,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-14T08:07:16"
+  },
+  {
+    "date": "2022-03-15",
+    "season": "2021-2022",
+    "amountMm": 4,
+    "cumulativeMm": 504,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-15T08:54:45"
+  },
+  {
+    "date": "2022-03-16",
+    "season": "2021-2022",
+    "amountMm": 2,
+    "cumulativeMm": 506,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-16T08:53:05"
+  },
+  {
+    "date": "2022-03-24",
+    "season": "2021-2022",
+    "amountMm": 2,
+    "cumulativeMm": 508,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-24T08:03:33"
+  },
+  {
+    "date": "2022-03-25",
+    "season": "2021-2022",
+    "amountMm": 21,
+    "cumulativeMm": 529,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-25T09:01:24"
+  },
+  {
+    "date": "2022-03-26",
+    "season": "2021-2022",
+    "amountMm": 4,
+    "cumulativeMm": 533,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-03-26T09:17:36"
+  },
+  {
+    "date": "2022-06-13",
+    "season": "2021-2022",
+    "amountMm": 2,
+    "cumulativeMm": 535,
+    "note": "(מצטבר חושב אוטומטית: יום קודם + כמות היום, לא דווח בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2022-06-13T09:15:29"
+  },
+  {
+    "date": "2022-10-21",
+    "season": "2022-2023",
+    "amountMm": 2,
+    "cumulativeMm": 2,
+    "note": "(מצטבר חושב אוטומטית: יום קודם + כמות היום, לא דווח בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2022-10-21T09:01:19"
+  },
+  {
+    "date": "2022-10-26",
+    "season": "2022-2023",
+    "amountMm": 4,
+    "cumulativeMm": 6,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-10-26T09:12:02"
+  },
+  {
+    "date": "2022-11-08",
+    "season": "2022-2023",
+    "amountMm": 10.8,
+    "cumulativeMm": 16.8,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-08T08:01:53"
+  },
+  {
+    "date": "2022-11-09",
+    "season": "2022-2023",
+    "amountMm": 15,
+    "cumulativeMm": 31.8,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-09T08:07:23"
+  },
+  {
+    "date": "2022-11-10",
+    "season": "2022-2023",
+    "amountMm": 2.2,
+    "cumulativeMm": 34,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-10T07:51:00"
+  },
+  {
+    "date": "2022-11-15",
+    "season": "2022-2023",
+    "amountMm": 16,
+    "cumulativeMm": 50,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-15T08:01:20"
+  },
+  {
+    "date": "2022-11-16",
+    "season": "2022-2023",
+    "amountMm": 7,
+    "cumulativeMm": 57,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-16T08:05:26"
+  },
+  {
+    "date": "2022-11-17",
+    "season": "2022-2023",
+    "amountMm": 8.5,
+    "cumulativeMm": 65.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-17T07:54:03"
+  },
+  {
+    "date": "2022-11-25",
+    "season": "2022-2023",
+    "amountMm": 4.5,
+    "cumulativeMm": 70,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-25T08:31:17"
+  },
+  {
+    "date": "2022-11-26",
+    "season": "2022-2023",
+    "amountMm": 32.5,
+    "cumulativeMm": 102.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-26T08:00:35"
+  },
+  {
+    "date": "2022-11-27",
+    "season": "2022-2023",
+    "amountMm": 1.5,
+    "cumulativeMm": 104,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-11-27T07:48:08"
+  },
+  {
+    "date": "2022-12-06",
+    "season": "2022-2023",
+    "amountMm": 1.5,
+    "cumulativeMm": 105.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-12-06T08:02:35"
+  },
+  {
+    "date": "2022-12-22",
+    "season": "2022-2023",
+    "amountMm": 2.2,
+    "cumulativeMm": 107.7,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-12-22T07:49:38"
+  },
+  {
+    "date": "2022-12-25",
+    "season": "2022-2023",
+    "amountMm": 9,
+    "cumulativeMm": 116.7,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-12-25T08:22:33"
+  },
+  {
+    "date": "2022-12-26",
+    "season": "2022-2023",
+    "amountMm": 18,
+    "cumulativeMm": 134.7,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-12-26T07:59:42"
+  },
+  {
+    "date": "2022-12-27",
+    "season": "2022-2023",
+    "amountMm": 41.8,
+    "cumulativeMm": 176.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2022-12-27T08:06:20"
+  },
+  {
+    "date": "2023-01-06",
+    "season": "2022-2023",
+    "amountMm": 1.2,
+    "cumulativeMm": 177.7,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-01-06T08:18:06"
+  },
+  {
+    "date": "2023-01-07",
+    "season": "2022-2023",
+    "amountMm": 2.2,
+    "cumulativeMm": 179.9,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-01-07T08:02:25"
+  },
+  {
+    "date": "2023-01-08",
+    "season": "2022-2023",
+    "amountMm": 0.7,
+    "cumulativeMm": 180.6,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-01-08T08:27:51"
+  },
+  {
+    "date": "2023-01-09",
+    "season": "2022-2023",
+    "amountMm": 4,
+    "cumulativeMm": 184.6,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-01-09T07:59:50"
+  },
+  {
+    "date": "2023-01-10",
+    "season": "2022-2023",
+    "amountMm": 4.3,
+    "cumulativeMm": 188.9,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-01-10T08:16:29"
+  },
+  {
+    "date": "2023-01-31",
+    "season": "2022-2023",
+    "amountMm": 2,
+    "cumulativeMm": 190.9,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-01-31T08:01:43"
+  },
+  {
+    "date": "2023-02-01",
+    "season": "2022-2023",
+    "amountMm": 59.1,
+    "cumulativeMm": 250,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-01T08:04:08"
+  },
+  {
+    "date": "2023-02-02",
+    "season": "2022-2023",
+    "amountMm": 26,
+    "cumulativeMm": 276,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-02T07:51:19"
+  },
+  {
+    "date": "2023-02-03",
+    "season": "2022-2023",
+    "amountMm": 9,
+    "cumulativeMm": 285,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-03T07:58:18"
+  },
+  {
+    "date": "2023-02-04",
+    "season": "2022-2023",
+    "amountMm": 7.5,
+    "cumulativeMm": 292.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-04T08:11:35"
+  },
+  {
+    "date": "2023-02-05",
+    "season": "2022-2023",
+    "amountMm": 7.5,
+    "cumulativeMm": 300,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-05T07:53:19"
+  },
+  {
+    "date": "2023-02-07",
+    "season": "2022-2023",
+    "amountMm": 38,
+    "cumulativeMm": 338,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-07T07:59:01"
+  },
+  {
+    "date": "2023-02-08",
+    "season": "2022-2023",
+    "amountMm": 30.5,
+    "cumulativeMm": 368.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-08T07:58:57"
+  },
+  {
+    "date": "2023-02-09",
+    "season": "2022-2023",
+    "amountMm": 7.5,
+    "cumulativeMm": 376,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-09T07:50:44"
+  },
+  {
+    "date": "2023-02-10",
+    "season": "2022-2023",
+    "amountMm": 0.5,
+    "cumulativeMm": 376.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-10T07:33:33"
+  },
+  {
+    "date": "2023-02-12",
+    "season": "2022-2023",
+    "amountMm": 1.5,
+    "cumulativeMm": 378,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-12T07:34:14"
+  },
+  {
+    "date": "2023-02-13",
+    "season": "2022-2023",
+    "amountMm": 1.5,
+    "cumulativeMm": 379.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-13T09:20:15"
+  },
+  {
+    "date": "2023-02-15",
+    "season": "2022-2023",
+    "amountMm": 1.5,
+    "cumulativeMm": 381,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-15T08:24:10"
+  },
+  {
+    "date": "2023-02-16",
+    "season": "2022-2023",
+    "amountMm": 8.5,
+    "cumulativeMm": 389.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-02-16T07:50:05"
+  },
+  {
+    "date": "2023-03-09",
+    "season": "2022-2023",
+    "amountMm": 0.5,
+    "cumulativeMm": 390,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-09T07:58:31"
+  },
+  {
+    "date": "2023-03-14",
+    "season": "2022-2023",
+    "amountMm": 9.5,
+    "cumulativeMm": 399.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-14T08:00:21"
+  },
+  {
+    "date": "2023-03-15",
+    "season": "2022-2023",
+    "amountMm": 15.5,
+    "cumulativeMm": 415,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-15T07:59:56"
+  },
+  {
+    "date": "2023-03-16",
+    "season": "2022-2023",
+    "amountMm": 8,
+    "cumulativeMm": 423,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-16T07:43:59"
+  },
+  {
+    "date": "2023-03-19",
+    "season": "2022-2023",
+    "amountMm": 5,
+    "cumulativeMm": 428,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-19T08:00:12"
+  },
+  {
+    "date": "2023-03-20",
+    "season": "2022-2023",
+    "amountMm": 15,
+    "cumulativeMm": 443,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-20T08:02:28"
+  },
+  {
+    "date": "2023-03-21",
+    "season": "2022-2023",
+    "amountMm": 16,
+    "cumulativeMm": 459,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-21T07:53:33"
+  },
+  {
+    "date": "2023-03-31",
+    "season": "2022-2023",
+    "amountMm": 0.5,
+    "cumulativeMm": 459.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-03-31T07:32:12"
+  },
+  {
+    "date": "2023-04-11",
+    "season": "2022-2023",
+    "amountMm": 0.5,
+    "cumulativeMm": 460,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-04-11T08:02:36"
+  },
+  {
+    "date": "2023-04-12",
+    "season": "2022-2023",
+    "amountMm": 8,
+    "cumulativeMm": 468,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-04-12T09:00:04"
+  },
+  {
+    "date": "2023-04-13",
+    "season": "2022-2023",
+    "amountMm": 19.5,
+    "cumulativeMm": 487.5,
+    "note": "ממוצע רב שנתי: 485 ממ",
+    "source": "whatsapp-import",
+    "reportedAt": "2023-04-13T09:14:34"
+  },
+  {
+    "date": "2023-04-29",
+    "season": "2022-2023",
+    "amountMm": 1.5,
+    "cumulativeMm": 489,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-04-29T09:05:56"
+  },
+  {
+    "date": "2023-04-30",
+    "season": "2022-2023",
+    "amountMm": 12.5,
+    "cumulativeMm": 501,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-04-30T08:28:37"
+  },
+  {
+    "date": "2023-06-09",
+    "season": "2022-2023",
+    "amountMm": 4,
+    "cumulativeMm": 505,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-06-09T08:18:42"
+  },
+  {
+    "date": "2023-06-14",
+    "season": "2022-2023",
+    "amountMm": 1.5,
+    "cumulativeMm": 506.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-06-14T08:45:37"
+  },
+  {
+    "date": "2023-09-13",
+    "season": "2023-2024",
+    "amountMm": 1,
+    "cumulativeMm": 1,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-09-13T09:08:11"
+  },
+  {
+    "date": "2023-10-15",
+    "season": "2023-2024",
+    "amountMm": 3.5,
+    "cumulativeMm": 4.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-10-15T09:06:21"
+  },
+  {
+    "date": "2023-10-16",
+    "season": "2023-2024",
+    "amountMm": 0.5,
+    "cumulativeMm": 5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-10-16T08:36:15"
+  },
+  {
+    "date": "2023-11-13",
+    "season": "2023-2024",
+    "amountMm": 1.5,
+    "cumulativeMm": 6.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-11-13T08:00:26"
+  },
+  {
+    "date": "2023-11-15",
+    "season": "2023-2024",
+    "amountMm": 32.5,
+    "cumulativeMm": 39,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-11-15T08:04:28"
+  },
+  {
+    "date": "2023-11-20",
+    "season": "2023-2024",
+    "amountMm": 18,
+    "cumulativeMm": 57,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-11-20T08:09:07"
+  },
+  {
+    "date": "2023-11-28",
+    "season": "2023-2024",
+    "amountMm": 21,
+    "cumulativeMm": 94,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-11-28T08:02:51"
+  },
+  {
+    "date": "2023-12-06",
+    "season": "2023-2024",
+    "amountMm": 6,
+    "cumulativeMm": 100,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-12-06T08:00:15"
+  },
+  {
+    "date": "2023-12-13",
+    "season": "2023-2024",
+    "amountMm": 26,
+    "cumulativeMm": 126,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-12-13T08:00:08"
+  },
+  {
+    "date": "2023-12-14",
+    "season": "2023-2024",
+    "amountMm": 5.5,
+    "cumulativeMm": 131.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-12-14T08:03:14"
+  },
+  {
+    "date": "2023-12-24",
+    "season": "2023-2024",
+    "amountMm": 13.5,
+    "cumulativeMm": 145,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-12-24T08:08:07"
+  },
+  {
+    "date": "2023-12-25",
+    "season": "2023-2024",
+    "amountMm": 2,
+    "cumulativeMm": 147,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2023-12-25T08:00:20"
+  },
+  {
+    "date": "2024-01-02",
+    "season": "2023-2024",
+    "amountMm": 4,
+    "cumulativeMm": 151,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-02T08:13:43"
+  },
+  {
+    "date": "2024-01-03",
+    "season": "2023-2024",
+    "amountMm": 5,
+    "cumulativeMm": 156,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-03T09:30:45"
+  },
+  {
+    "date": "2024-01-11",
+    "season": "2023-2024",
+    "amountMm": 24,
+    "cumulativeMm": 180,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-11T08:08:40"
+  },
+  {
+    "date": "2024-01-12",
+    "season": "2023-2024",
+    "amountMm": 40,
+    "cumulativeMm": 220,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-12T08:54:27"
+  },
+  {
+    "date": "2024-01-13",
+    "season": "2023-2024",
+    "amountMm": 1.5,
+    "cumulativeMm": 221.5,
+    "note": "(מצטבר תוקן ידנית לפי הודעת תיקון בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-13T08:58:59"
+  },
+  {
+    "date": "2024-01-14",
+    "season": "2023-2024",
+    "amountMm": 17,
+    "cumulativeMm": 238.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-14T08:33:07"
+  },
+  {
+    "date": "2024-01-15",
+    "season": "2023-2024",
+    "amountMm": 7.5,
+    "cumulativeMm": 246,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-15T08:04:57"
+  },
+  {
+    "date": "2024-01-16",
+    "season": "2023-2024",
+    "amountMm": 1,
+    "cumulativeMm": 247,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-16T08:18:45"
+  },
+  {
+    "date": "2024-01-23",
+    "season": "2023-2024",
+    "amountMm": 2,
+    "cumulativeMm": 249,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-23T08:06:12"
+  },
+  {
+    "date": "2024-01-24",
+    "season": "2023-2024",
+    "amountMm": 15,
+    "cumulativeMm": 264,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-24T08:02:40"
+  },
+  {
+    "date": "2024-01-25",
+    "season": "2023-2024",
+    "amountMm": 7,
+    "cumulativeMm": 271,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-25T08:00:23"
+  },
+  {
+    "date": "2024-01-26",
+    "season": "2023-2024",
+    "amountMm": 11.5,
+    "cumulativeMm": 282.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-26T08:04:05"
+  },
+  {
+    "date": "2024-01-27",
+    "season": "2023-2024",
+    "amountMm": 19.5,
+    "cumulativeMm": 302,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-27T08:00:37"
+  },
+  {
+    "date": "2024-01-28",
+    "season": "2023-2024",
+    "amountMm": 6,
+    "cumulativeMm": 308,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-28T08:05:47"
+  },
+  {
+    "date": "2024-01-29",
+    "season": "2023-2024",
+    "amountMm": 14,
+    "cumulativeMm": 322,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-29T08:01:42"
+  },
+  {
+    "date": "2024-01-30",
+    "season": "2023-2024",
+    "amountMm": 24,
+    "cumulativeMm": 346,
+    "note": "(מצטבר תוקן ידנית לפי הודעת תיקון בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-30T08:09:35"
+  },
+  {
+    "date": "2024-01-31",
+    "season": "2023-2024",
+    "amountMm": 9,
+    "cumulativeMm": 355,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-01-31T08:00:10"
+  },
+  {
+    "date": "2024-02-02",
+    "season": "2023-2024",
+    "amountMm": 9,
+    "cumulativeMm": 364,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-02T07:59:27"
+  },
+  {
+    "date": "2024-02-03",
+    "season": "2023-2024",
+    "amountMm": 16,
+    "cumulativeMm": 380,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-03T08:00:52"
+  },
+  {
+    "date": "2024-02-05",
+    "season": "2023-2024",
+    "amountMm": 8,
+    "cumulativeMm": 388,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-05T08:00:05"
+  },
+  {
+    "date": "2024-02-06",
+    "season": "2023-2024",
+    "amountMm": 6.5,
+    "cumulativeMm": 394.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-06T08:00:18"
+  },
+  {
+    "date": "2024-02-14",
+    "season": "2023-2024",
+    "amountMm": 5,
+    "cumulativeMm": 399.5,
+    "note": "(מצטבר תוקן ידנית לפי הודעת תיקון בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-14T08:01:38"
+  },
+  {
+    "date": "2024-02-16",
+    "season": "2023-2024",
+    "amountMm": 1.5,
+    "cumulativeMm": 401,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-16T08:02:32"
+  },
+  {
+    "date": "2024-02-18",
+    "season": "2023-2024",
+    "amountMm": 1,
+    "cumulativeMm": 402,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-18T07:58:44"
+  },
+  {
+    "date": "2024-02-19",
+    "season": "2023-2024",
+    "amountMm": 24.5,
+    "cumulativeMm": 426.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-19T08:23:13"
+  },
+  {
+    "date": "2024-02-20",
+    "season": "2023-2024",
+    "amountMm": 7,
+    "cumulativeMm": 433.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-20T08:53:14"
+  },
+  {
+    "date": "2024-02-28",
+    "season": "2023-2024",
+    "amountMm": 6,
+    "cumulativeMm": 439.5,
+    "note": "(מצטבר תוקן ידנית לפי הודעת תיקון בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2024-02-28T07:56:41"
+  },
+  {
+    "date": "2024-03-04",
+    "season": "2023-2024",
+    "amountMm": 2.5,
+    "cumulativeMm": 442,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-03-04T07:46:12"
+  },
+  {
+    "date": "2024-03-08",
+    "season": "2023-2024",
+    "amountMm": 1,
+    "cumulativeMm": 443,
+    "note": "מצטבר; 443 ממ (מצטבר חושב אוטומטית: יום קודם + כמות היום, לא דווח בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2024-03-08T07:27:44"
+  },
+  {
+    "date": "2024-03-19",
+    "season": "2023-2024",
+    "amountMm": 11,
+    "cumulativeMm": 454,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-03-19T07:59:36"
+  },
+  {
+    "date": "2024-03-20",
+    "season": "2023-2024",
+    "amountMm": 5,
+    "cumulativeMm": 459,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-03-20T07:58:57"
+  },
+  {
+    "date": "2024-04-10",
+    "season": "2023-2024",
+    "amountMm": 9,
+    "cumulativeMm": 468,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-04-10T08:16:25"
+  },
+  {
+    "date": "2024-04-11",
+    "season": "2023-2024",
+    "amountMm": 1.5,
+    "cumulativeMm": 469.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-04-11T07:49:54"
+  },
+  {
+    "date": "2024-05-07",
+    "season": "2023-2024",
+    "amountMm": 1,
+    "cumulativeMm": 470.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-05-07T08:18:00"
+  },
+  {
+    "date": "2024-09-22",
+    "season": "2024-2025",
+    "amountMm": 0.5,
+    "cumulativeMm": 0.5,
+    "note": "(מצטבר חושב אוטומטית: יום קודם + כמות היום, לא דווח בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2024-09-22T10:06:09"
+  },
+  {
+    "date": "2024-09-23",
+    "season": "2024-2025",
+    "amountMm": 3,
+    "cumulativeMm": 3.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-09-23T09:01:52"
+  },
+  {
+    "date": "2024-11-18",
+    "season": "2024-2025",
+    "amountMm": 2,
+    "cumulativeMm": 5.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-11-18T08:09:26"
+  },
+  {
+    "date": "2024-11-19",
+    "season": "2024-2025",
+    "amountMm": 5.5,
+    "cumulativeMm": 11,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-11-19T08:17:03"
+  },
+  {
+    "date": "2024-11-20",
+    "season": "2024-2025",
+    "amountMm": 4,
+    "cumulativeMm": 15,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-11-20T08:02:30"
+  },
+  {
+    "date": "2024-11-25",
+    "season": "2024-2025",
+    "amountMm": 8,
+    "cumulativeMm": 23,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-11-25T07:59:57"
+  },
+  {
+    "date": "2024-11-26",
+    "season": "2024-2025",
+    "amountMm": 8,
+    "cumulativeMm": 31,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-11-26T07:59:30"
+  },
+  {
+    "date": "2024-12-14",
+    "season": "2024-2025",
+    "amountMm": 5,
+    "cumulativeMm": 36,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-12-14T08:03:17"
+  },
+  {
+    "date": "2024-12-20",
+    "season": "2024-2025",
+    "amountMm": 1,
+    "cumulativeMm": 37,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-12-20T08:03:00"
+  },
+  {
+    "date": "2024-12-21",
+    "season": "2024-2025",
+    "amountMm": 13,
+    "cumulativeMm": 50,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-12-21T08:05:41"
+  },
+  {
+    "date": "2024-12-30",
+    "season": "2024-2025",
+    "amountMm": 30.5,
+    "cumulativeMm": 80.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-12-30T08:12:30"
+  },
+  {
+    "date": "2024-12-31",
+    "season": "2024-2025",
+    "amountMm": 58,
+    "cumulativeMm": 138.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2024-12-31T08:00:13"
+  },
+  {
+    "date": "2025-01-01",
+    "season": "2024-2025",
+    "amountMm": 24,
+    "cumulativeMm": 162.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-01-01T07:56:04"
+  },
+  {
+    "date": "2025-01-11",
+    "season": "2024-2025",
+    "amountMm": 2.5,
+    "cumulativeMm": 165,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-01-11T09:22:08"
+  },
+  {
+    "date": "2025-01-12",
+    "season": "2024-2025",
+    "amountMm": 0.5,
+    "cumulativeMm": 168,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-01-12T07:58:43"
+  },
+  {
+    "date": "2025-01-23",
+    "season": "2024-2025",
+    "amountMm": 1,
+    "cumulativeMm": 169,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-01-23T07:59:55"
+  },
+  {
+    "date": "2025-01-24",
+    "season": "2024-2025",
+    "amountMm": 2.5,
+    "cumulativeMm": 171.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-01-24T08:04:43"
+  },
+  {
+    "date": "2025-01-25",
+    "season": "2024-2025",
+    "amountMm": 1.5,
+    "cumulativeMm": 173,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-01-25T09:27:38"
+  },
+  {
+    "date": "2025-02-06",
+    "season": "2024-2025",
+    "amountMm": 18,
+    "cumulativeMm": 191,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-06T08:06:34"
+  },
+  {
+    "date": "2025-02-07",
+    "season": "2024-2025",
+    "amountMm": 5,
+    "cumulativeMm": 196,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-07T08:10:08"
+  },
+  {
+    "date": "2025-02-10",
+    "season": "2024-2025",
+    "amountMm": 9.5,
+    "cumulativeMm": 205.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-10T08:19:29"
+  },
+  {
+    "date": "2025-02-11",
+    "season": "2024-2025",
+    "amountMm": 1,
+    "cumulativeMm": 206.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-11T09:39:43"
+  },
+  {
+    "date": "2025-02-12",
+    "season": "2024-2025",
+    "amountMm": 1,
+    "cumulativeMm": 207.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-12T08:23:47"
+  },
+  {
+    "date": "2025-02-13",
+    "season": "2024-2025",
+    "amountMm": 6.5,
+    "cumulativeMm": 214,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-13T08:02:25"
+  },
+  {
+    "date": "2025-02-20",
+    "season": "2024-2025",
+    "amountMm": 6,
+    "cumulativeMm": 220,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-20T08:06:49"
+  },
+  {
+    "date": "2025-02-21",
+    "season": "2024-2025",
+    "amountMm": 4,
+    "cumulativeMm": 224,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-21T08:17:08"
+  },
+  {
+    "date": "2025-02-22",
+    "season": "2024-2025",
+    "amountMm": 2,
+    "cumulativeMm": 226,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-22T08:05:38"
+  },
+  {
+    "date": "2025-02-23",
+    "season": "2024-2025",
+    "amountMm": 5,
+    "cumulativeMm": 231,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-23T07:59:24"
+  },
+  {
+    "date": "2025-02-25",
+    "season": "2024-2025",
+    "amountMm": 1.5,
+    "cumulativeMm": 232.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-02-25T09:51:07"
+  },
+  {
+    "date": "2025-03-01",
+    "season": "2024-2025",
+    "amountMm": 4,
+    "cumulativeMm": 236.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-03-01T08:04:44"
+  },
+  {
+    "date": "2025-03-02",
+    "season": "2024-2025",
+    "amountMm": 0.5,
+    "cumulativeMm": 237,
+    "note": "צטבר: 237 ממ (מצטבר חושב אוטומטית: יום קודם + כמות היום, לא דווח בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2025-03-02T07:28:43"
+  },
+  {
+    "date": "2025-03-07",
+    "season": "2024-2025",
+    "amountMm": 5.5,
+    "cumulativeMm": 242.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-03-07T08:04:32"
+  },
+  {
+    "date": "2025-03-08",
+    "season": "2024-2025",
+    "amountMm": 1.5,
+    "cumulativeMm": 244,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-03-08T17:01:49"
+  },
+  {
+    "date": "2025-03-20",
+    "season": "2024-2025",
+    "amountMm": 2,
+    "cumulativeMm": 246,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-03-20T07:55:16"
+  },
+  {
+    "date": "2025-03-21",
+    "season": "2024-2025",
+    "amountMm": 14,
+    "cumulativeMm": 260,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-03-21T08:01:09"
+  },
+  {
+    "date": "2025-03-22",
+    "season": "2024-2025",
+    "amountMm": 9.5,
+    "cumulativeMm": 269.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-03-22T08:00:02"
+  },
+  {
+    "date": "2025-04-14",
+    "season": "2024-2025",
+    "amountMm": 1,
+    "cumulativeMm": 270.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-04-14T10:05:22"
+  },
+  {
+    "date": "2025-05-05",
+    "season": "2024-2025",
+    "amountMm": 8,
+    "cumulativeMm": 278.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-05-05T08:50:34"
+  },
+  {
+    "date": "2025-11-14",
+    "season": "2025-2026",
+    "amountMm": 1,
+    "cumulativeMm": 7,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-11-14T08:15:05"
+  },
+  {
+    "date": "2025-11-15",
+    "season": "2025-2026",
+    "amountMm": 24.5,
+    "cumulativeMm": 31.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-11-15T08:01:07"
+  },
+  {
+    "date": "2025-11-16",
+    "season": "2025-2026",
+    "amountMm": 14,
+    "cumulativeMm": 45.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-11-16T08:00:04"
+  },
+  {
+    "date": "2025-11-17",
+    "season": "2025-2026",
+    "amountMm": 0.5,
+    "cumulativeMm": 46,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-11-17T07:53:46"
+  },
+  {
+    "date": "2025-11-25",
+    "season": "2025-2026",
+    "amountMm": 15.5,
+    "cumulativeMm": 61.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-11-25T08:00:09"
+  },
+  {
+    "date": "2025-11-26",
+    "season": "2025-2026",
+    "amountMm": 19.5,
+    "cumulativeMm": 81,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-11-26T08:08:08"
+  },
+  {
+    "date": "2025-12-01",
+    "season": "2025-2026",
+    "amountMm": 6,
+    "cumulativeMm": 87,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-01T08:01:48"
+  },
+  {
+    "date": "2025-12-07",
+    "season": "2025-2026",
+    "amountMm": 0.5,
+    "cumulativeMm": 87.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-07T08:06:30"
+  },
+  {
+    "date": "2025-12-10",
+    "season": "2025-2026",
+    "amountMm": 18.5,
+    "cumulativeMm": 106,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-10T08:02:10"
+  },
+  {
+    "date": "2025-12-11",
+    "season": "2025-2026",
+    "amountMm": 7,
+    "cumulativeMm": 113,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-11T08:00:50"
+  },
+  {
+    "date": "2025-12-12",
+    "season": "2025-2026",
+    "amountMm": 80,
+    "cumulativeMm": 193,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-12T07:59:28"
+  },
+  {
+    "date": "2025-12-13",
+    "season": "2025-2026",
+    "amountMm": 7,
+    "cumulativeMm": 200,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-13T08:50:15"
+  },
+  {
+    "date": "2025-12-16",
+    "season": "2025-2026",
+    "amountMm": 13,
+    "cumulativeMm": 213,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-16T08:04:41"
+  },
+  {
+    "date": "2025-12-17",
+    "season": "2025-2026",
+    "amountMm": 11.5,
+    "cumulativeMm": 224.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-17T08:00:11"
+  },
+  {
+    "date": "2025-12-28",
+    "season": "2025-2026",
+    "amountMm": 19.5,
+    "cumulativeMm": 244,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-28T08:00:17"
+  },
+  {
+    "date": "2025-12-29",
+    "season": "2025-2026",
+    "amountMm": 24.5,
+    "cumulativeMm": 268.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-29T08:00:04"
+  },
+  {
+    "date": "2025-12-30",
+    "season": "2025-2026",
+    "amountMm": 13.5,
+    "cumulativeMm": 282,
+    "note": "137% ביחס לממוצע בסוף דצמבר",
+    "source": "whatsapp-import",
+    "reportedAt": "2025-12-30T08:09:46"
+  },
+  {
+    "date": "2026-01-02",
+    "season": "2025-2026",
+    "amountMm": 38.5,
+    "cumulativeMm": 320.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-02T08:00:50"
+  },
+  {
+    "date": "2026-01-09",
+    "season": "2025-2026",
+    "amountMm": 4,
+    "cumulativeMm": 324.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-09T08:00:26"
+  },
+  {
+    "date": "2026-01-10",
+    "season": "2025-2026",
+    "amountMm": 10,
+    "cumulativeMm": 334.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-10T08:00:35"
+  },
+  {
+    "date": "2026-01-13",
+    "season": "2025-2026",
+    "amountMm": 22,
+    "cumulativeMm": 356.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-13T08:02:59"
+  },
+  {
+    "date": "2026-01-14",
+    "season": "2025-2026",
+    "amountMm": 17.5,
+    "cumulativeMm": 374,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-14T08:02:43"
+  },
+  {
+    "date": "2026-01-15",
+    "season": "2025-2026",
+    "amountMm": 1,
+    "cumulativeMm": 375,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-15T08:00:04"
+  },
+  {
+    "date": "2026-01-19",
+    "season": "2025-2026",
+    "amountMm": 16,
+    "cumulativeMm": 391,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-19T08:26:43"
+  },
+  {
+    "date": "2026-01-29",
+    "season": "2025-2026",
+    "amountMm": 6,
+    "cumulativeMm": 397,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-01-29T08:35:24"
+  },
+  {
+    "date": "2026-02-04",
+    "season": "2025-2026",
+    "amountMm": 21,
+    "cumulativeMm": 418,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-02-04T08:02:31"
+  },
+  {
+    "date": "2026-02-24",
+    "season": "2025-2026",
+    "amountMm": 32.5,
+    "cumulativeMm": 450.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-02-24T08:20:09"
+  },
+  {
+    "date": "2026-02-25",
+    "season": "2025-2026",
+    "amountMm": 1,
+    "cumulativeMm": 451.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-02-25T09:32:18"
+  },
+  {
+    "date": "2026-02-27",
+    "season": "2025-2026",
+    "amountMm": 3,
+    "cumulativeMm": 454.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-02-27T08:02:38"
+  },
+  {
+    "date": "2026-03-19",
+    "season": "2025-2026",
+    "amountMm": 1,
+    "cumulativeMm": 455.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-19T10:31:03"
+  },
+  {
+    "date": "2026-03-20",
+    "season": "2025-2026",
+    "amountMm": 2,
+    "cumulativeMm": 457.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-20T08:00:28"
+  },
+  {
+    "date": "2026-03-21",
+    "season": "2025-2026",
+    "amountMm": 3,
+    "cumulativeMm": 460.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-21T07:59:19"
+  },
+  {
+    "date": "2026-03-22",
+    "season": "2025-2026",
+    "amountMm": 33,
+    "cumulativeMm": 493.5,
+    "note": "- נחצה קו הממוצע הרב-שנתי.",
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-22T08:00:30"
+  },
+  {
+    "date": "2026-03-26",
+    "season": "2025-2026",
+    "amountMm": 15.5,
+    "cumulativeMm": 509,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-26T08:02:18"
+  },
+  {
+    "date": "2026-03-27",
+    "season": "2025-2026",
+    "amountMm": 14,
+    "cumulativeMm": 523,
+    "note": "הערה: שעת המדידה  בתקופת שעון הקיץ היא 9:00",
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-27T08:56:08"
+  },
+  {
+    "date": "2026-03-28",
+    "season": "2025-2026",
+    "amountMm": 1,
+    "cumulativeMm": 524,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-28T09:01:19"
+  },
+  {
+    "date": "2026-03-30",
+    "season": "2025-2026",
+    "amountMm": 3.5,
+    "cumulativeMm": 527.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-03-30T09:00:46"
+  },
+  {
+    "date": "2026-04-01",
+    "season": "2025-2026",
+    "amountMm": 1,
+    "cumulativeMm": 528.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-04-01T09:00:21"
+  },
+  {
+    "date": "2026-04-02",
+    "season": "2025-2026",
+    "amountMm": 2.5,
+    "cumulativeMm": 531,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-04-02T09:00:44"
+  },
+  {
+    "date": "2026-04-03",
+    "season": "2025-2026",
+    "amountMm": 1,
+    "cumulativeMm": 532,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-04-03T10:25:03"
+  },
+  {
+    "date": "2026-04-07",
+    "season": "2025-2026",
+    "amountMm": 2,
+    "cumulativeMm": 534,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-04-07T09:02:34"
+  },
+  {
+    "date": "2026-04-08",
+    "season": "2025-2026",
+    "amountMm": 1.5,
+    "cumulativeMm": 535.5,
+    "note": null,
+    "source": "whatsapp-import",
+    "reportedAt": "2026-04-08T09:03:52"
+  },
+  {
+    "date": "2026-08-31",
+    "season": "2025-2026",
+    "amountMm": 0.5,
+    "cumulativeMm": 536,
+    "note": "(מצטבר חושב אוטומטית: יום קודם + כמות היום, לא דווח בצ׳אט)",
+    "source": "whatsapp-import",
+    "reportedAt": "2026-08-31T09:46:45"
+  }
+]

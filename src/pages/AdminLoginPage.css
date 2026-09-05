@@ -1,0 +1,40 @@
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-login-card {
+  padding: 40px 32px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-login-card h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.admin-login-sub {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: -8px;
+}
+
+.not-allowed {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.error-msg {
+  color: var(--danger);
+  font-size: 13px;
+}
