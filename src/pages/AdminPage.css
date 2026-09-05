@@ -88,6 +88,12 @@
   gap: 6px;
 }
 
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .form-hint {
   font-size: 13px;
   color: var(--text-muted);

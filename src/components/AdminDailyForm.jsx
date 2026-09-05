@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { seasonForDate } from '../utils/season';
+import { seasonForDate, seasonLabel } from '../utils/season';
 import { formatDateIL } from '../utils/format';
+import { buildDailyReadingMessage, buildWhatsAppShareUrl } from '../utils/whatsapp';
 
 function todayISO() {
   const d = new Date();
@@ -39,21 +40,25 @@ export function AdminDailyForm({ readings }) {
     setCumulativeOverride('');
   }
 
-  async function handleSubmit(e) {
+  async function saveReading() {
+    const cumulativeMm = cumulativeOverride !== '' ? Number(cumulativeOverride) : computedCumulative;
+    await setDoc(doc(db, 'readings', date), {
+      date,
+      season,
+      amountMm: Number(amountMm),
+      cumulativeMm,
+      note: null,
+      source: 'manual',
+    });
+    return cumulativeMm;
+  }
+
+  async function handleSave(e) {
     e.preventDefault();
     setSaving(true);
     setMessage(null);
     try {
-      const cumulativeMm =
-        cumulativeOverride !== '' ? Number(cumulativeOverride) : computedCumulative;
-      await setDoc(doc(db, 'readings', date), {
-        date,
-        season,
-        amountMm: Number(amountMm),
-        cumulativeMm,
-        note: null,
-        source: 'manual',
-      });
+      const cumulativeMm = await saveReading();
       setMessage({
         type: 'ok',
         text: `נשמר: ${formatDateIL(date)} — ${amountMm} מ״מ, מצטבר ${cumulativeMm} מ״מ`,
@@ -66,8 +71,43 @@ export function AdminDailyForm({ readings }) {
     }
   }
 
+  async function handleSaveAndShare() {
+    if (!date || amountMm === '') return;
+    // Open the tab synchronously, in direct response to the click, and
+    // navigate it once the save finishes — opening it only after the
+    // `await` below would get it blocked as a popup on iOS Safari.
+    const shareTab = window.open('', '_blank');
+    setSaving(true);
+    setMessage(null);
+    try {
+      const cumulativeMm = await saveReading();
+      const text = buildDailyReadingMessage({
+        dateLabel: formatDateIL(date),
+        amountMm: Number(amountMm),
+        cumulativeMm,
+        seasonLabel: seasonLabel(season),
+      });
+      const url = buildWhatsAppShareUrl(text);
+      if (shareTab) {
+        shareTab.location.href = url;
+      } else {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+      setMessage({
+        type: 'ok',
+        text: `נשמר: ${formatDateIL(date)} — ${amountMm} מ״מ, מצטבר ${cumulativeMm} מ״מ`,
+      });
+      setAmountMm('');
+    } catch (err) {
+      shareTab?.close();
+      setMessage({ type: 'error', text: err.message });
+    } finally {
+      setSaving(false);
+    }
+  }
+
   return (
-    <form className="admin-form" onSubmit={handleSubmit}>
+    <form className="admin-form" onSubmit={handleSave}>
       <div className="field">
         <label htmlFor="date">תאריך</label>
         <input
@@ -104,9 +144,19 @@ export function AdminDailyForm({ readings }) {
         />
       </div>
 
-      <button className="btn btn-primary" type="submit" disabled={saving}>
-        {saving ? 'שומר…' : 'שמירה'}
-      </button>
+      <div className="form-actions">
+        <button className="btn btn-primary" type="submit" disabled={saving}>
+          {saving ? 'שומר…' : 'שמירה'}
+        </button>
+        <button
+          className="btn btn-secondary"
+          type="button"
+          onClick={handleSaveAndShare}
+          disabled={saving || amountMm === ''}
+        >
+          {saving ? 'שומר…' : 'שמירה ושליחה בוואטסאפ'}
+        </button>
+      </div>
 
       {message && (
         <p className={message.type === 'ok' ? 'form-msg-ok' : 'form-msg-error'}>{message.text}</p>
