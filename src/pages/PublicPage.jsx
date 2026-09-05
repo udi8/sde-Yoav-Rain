@@ -15,7 +15,15 @@ export function PublicPage() {
   const nowSeason = currentSeason();
   const [selectedSeason, setSelectedSeason] = useState(nowSeason);
 
-  const seasons = useMemo(() => sortedSeasons([...new Set(readings.map((r) => r.season))]), [readings]);
+  // Always include the current season as a selectable option, even before
+  // it has any readings — otherwise the <select>'s value (defaulting to
+  // nowSeason) matches none of its <option>s and the browser silently
+  // displays a different one than what's actually shown below it.
+  const seasons = useMemo(() => {
+    const fromReadings = new Set(readings.map((r) => r.season));
+    fromReadings.add(nowSeason);
+    return sortedSeasons([...fromReadings]);
+  }, [readings, nowSeason]);
 
   const latest = useMemo(() => {
     const seasonReadings = readings.filter((r) => r.season === nowSeason);
