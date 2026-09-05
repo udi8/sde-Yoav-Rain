@@ -1,0 +1,48 @@
+.ptr-indicator {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ptr-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  color: var(--accent);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.ptr-spinner::before {
+  content: '↓';
+}
+
+.ptr-spinner.ptr-spinning {
+  animation: ptr-spin 0.7s linear infinite;
+}
+
+.ptr-spinner.ptr-spinning::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+}
+
+@keyframes ptr-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
