@@ -7,11 +7,17 @@ import './ReadingsTable.css';
 // trend, a list/table for the raw values).
 export function ReadingsTable({ readings, seasonLabel }) {
   const sorted = [...readings].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const total = sorted.length ? Math.max(...sorted.map((r) => r.cumulativeMm)) : null;
 
   return (
     <div className="readings-card card">
       <div className="readings-card-header">
         <h3>כל המדידות לעונת {seasonLabel}</h3>
+        {total !== null && (
+          <span className="readings-card-total">
+            סה״כ <strong>{total}</strong> מ״מ
+          </span>
+        )}
       </div>
       <div className="readings-list">
         <table className="readings-table">
