@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { seasonForDate } from '../utils/season';
+import { formatDateIL } from '../utils/format';
 
 // Free-date entry for pre-2021 data (Yigal's 1991 paper records, not yet
 // digitized). Unlike the daily form, cumulative isn't auto-computed here —
@@ -30,7 +31,7 @@ export function AdminHistoricalForm() {
         note: note || null,
         source: 'historical',
       });
-      setMessage({ type: 'ok', text: `נשמר נתון היסטורי: ${date}` });
+      setMessage({ type: 'ok', text: `נשמר נתון היסטורי: ${formatDateIL(date)}` });
       setDate('');
       setAmountMm('');
       setCumulativeMm('');

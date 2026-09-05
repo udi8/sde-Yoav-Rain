@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import { dayOfSeason, seasonStartYear, seasonLabel } from '../utils/season';
 import { averageCurve, FULL_SEASON_AVERAGE_MM } from '../utils/historicalAverage';
+import { formatDateIL } from '../utils/format';
 import './SeasonChart.css';
 
 const MONTHS_HE = [
@@ -64,7 +65,7 @@ export function SeasonChart({ season, readings }) {
 
   const latestActual = [...actualPoints].sort((a, b) => b.day - a.day)[0];
   const chartSummary = latestActual
-    ? `נכון ל-${latestActual.date}: ${latestActual.actualMm} מ״מ מצטבר, לעומת ממוצע רב-שנתי של ${FULL_SEASON_AVERAGE_MM} מ״מ לעונה שלמה.`
+    ? `נכון ל-${formatDateIL(latestActual.date)}: ${latestActual.actualMm} מ״מ מצטבר, לעומת ממוצע רב-שנתי של ${FULL_SEASON_AVERAGE_MM} מ״מ לעונה שלמה.`
     : `אין עדיין נתונים לעונת ${seasonLabel(season)}.`;
 
   return (
@@ -90,7 +91,7 @@ export function SeasonChart({ season, readings }) {
           <Tooltip
             labelFormatter={(day) => {
               const p = data.find((d) => d.day === day);
-              return p?.date || '';
+              return p?.date ? formatDateIL(p.date) : '';
             }}
             formatter={(value, name) => [
               `${value?.toFixed ? value.toFixed(1) : value} מ״מ`,

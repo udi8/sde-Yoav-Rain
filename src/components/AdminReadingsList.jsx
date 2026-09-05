@@ -2,10 +2,11 @@ import { useMemo, useState } from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { sortedSeasons, seasonLabel } from '../utils/season';
+import { formatDateIL } from '../utils/format';
 
 const SOURCE_LABEL = {
-  'whatsapp-import': 'ייבוא וואטסאפ',
-  manual: 'הזנה יומית',
+  'whatsapp-import': 'וואטסאפ',
+  manual: 'יומית',
   historical: 'היסטורי',
 };
 
@@ -25,7 +26,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
   const visible = showAll ? sorted : sorted.slice(0, limit);
 
   async function handleDelete(date) {
-    if (!confirm(`למחוק את הרשומה של ${date}?`)) return;
+    if (!confirm(`למחוק את הרשומה של ${formatDateIL(date)}?`)) return;
     setDeletingId(date);
     try {
       await deleteDoc(doc(db, 'readings', date));
@@ -69,7 +70,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
         <tbody>
           {visible.map((r) => (
             <tr key={r.date}>
-              <td>{r.date}</td>
+              <td>{formatDateIL(r.date)}</td>
               <td>{r.amountMm ?? '—'}</td>
               <td>{r.cumulativeMm}</td>
               <td>
@@ -80,7 +81,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
                   className="delete-btn"
                   onClick={() => handleDelete(r.date)}
                   disabled={deletingId === r.date}
-                  aria-label={`מחיקת רשומת ${r.date}`}
+                  aria-label={`מחיקת רשומת ${formatDateIL(r.date)}`}
                 >
                   {deletingId === r.date ? '…' : '🗑'}
                 </button>

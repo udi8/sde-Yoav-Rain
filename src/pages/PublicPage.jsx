@@ -6,6 +6,7 @@ import { SeasonChart } from '../components/SeasonChart';
 import { SeasonCompareChart } from '../components/SeasonCompareChart';
 import { currentSeason, seasonLabel, sortedSeasons } from '../utils/season';
 import { FULL_SEASON_AVERAGE_MM } from '../utils/historicalAverage';
+import { formatDateIL } from '../utils/format';
 import './PublicPage.css';
 
 export function PublicPage() {
@@ -49,7 +50,7 @@ export function PublicPage() {
                 label="גשם היום"
                 value={latest ? latest.amountMm : '—'}
                 unit="מ״מ"
-                sub={latest ? new Date(latest.date).toLocaleDateString('he-IL') : 'אין נתונים עדיין'}
+                sub={latest ? formatDateIL(latest.date) : 'אין נתונים עדיין'}
               />
               <StatCard
                 label={`מצטבר לעונת ${seasonLabel(nowSeason)}`}

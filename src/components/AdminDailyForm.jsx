@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { seasonForDate } from '../utils/season';
+import { formatDateIL } from '../utils/format';
 
 function todayISO() {
   const d = new Date();
@@ -53,7 +54,10 @@ export function AdminDailyForm({ readings }) {
         note: null,
         source: 'manual',
       });
-      setMessage({ type: 'ok', text: `נשמר: ${date} — ${amountMm} מ״מ, מצטבר ${cumulativeMm} מ״מ` });
+      setMessage({
+        type: 'ok',
+        text: `נשמר: ${formatDateIL(date)} — ${amountMm} מ״מ, מצטבר ${cumulativeMm} מ״מ`,
+      });
       setAmountMm('');
     } catch (err) {
       setMessage({ type: 'error', text: err.message });
