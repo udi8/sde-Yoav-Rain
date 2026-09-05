@@ -3,16 +3,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Admin allowlist — keep this in sync by hand with src/config/admins.js.
-    // There's no server-side function on the free Spark plan to share a
-    // single source of truth, so both copies must be updated together.
+    // Admin status lives in the `admins` collection (doc id = lowercase
+    // email), not a hardcoded list — existing admins add/remove others from
+    // the admin page. `exists()` here reads the doc directly regardless of
+    // the `admins` match block's own allow rules below.
     function isAdmin() {
       return request.auth != null &&
         request.auth.token.email_verified == true &&
-        request.auth.token.email in [
-          'udii.idan@gmail.com',
-          'yigal.sharoni@gmail.com' // TODO: replace with Yigal's real email
-        ];
+        exists(/databases/$(database)/documents/admins/$(request.auth.token.email.lower()));
     }
 
     // ─── Rainfall readings ──────────────────────────────────────────────
@@ -22,6 +20,19 @@ service cloud.firestore {
     match /readings/{date} {
       allow read: if true; // public page needs no auth
       allow write: if isAdmin();
+    }
+
+    // ─── Admins ───────────────────────────────────────────────────────
+    // A signed-in user may always check their own admin doc (so the app can
+    // tell them whether they're allowed in); only admins can list everyone
+    // or add/remove entries. The very first admin has to be seeded directly
+    // via a service account (scripts/bootstrapAdmin.js), since no one can
+    // satisfy isAdmin() before any doc exists.
+    match /admins/{adminId} {
+      allow get: if request.auth != null &&
+        (request.auth.token.email.lower() == adminId || isAdmin());
+      allow list: if isAdmin();
+      allow create, update, delete: if isAdmin();
     }
 
     // Deny everything else by default.

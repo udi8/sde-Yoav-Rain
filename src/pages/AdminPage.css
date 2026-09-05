@@ -31,12 +31,14 @@
 
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 980px;
   padding: 4px;
   width: fit-content;
+  max-width: 100%;
 }
 
 .tab {
@@ -101,6 +103,10 @@
   font-size: 13px;
 }
 
+.readings-list {
+  overflow-x: auto;
+}
+
 .readings-table {
   width: 100%;
   border-collapse: collapse;
@@ -144,6 +150,18 @@
   text-align: center;
   color: var(--text-muted);
   padding: 20px 0;
+}
+
+.admin-management .admin-form {
+  margin-bottom: 20px;
+}
+
+.admins-table-wrap {
+  overflow-x: auto;
+}
+
+.admins-table .source-tag {
+  margin-inline-start: 8px;
 }
 
 @media (max-width: 800px) {

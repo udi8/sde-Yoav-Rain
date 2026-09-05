@@ -5,6 +5,7 @@ import { useReadings } from '../hooks/useReadings';
 import { AdminDailyForm } from '../components/AdminDailyForm';
 import { AdminHistoricalForm } from '../components/AdminHistoricalForm';
 import { AdminReadingsList } from '../components/AdminReadingsList';
+import { AdminManagement } from '../components/AdminManagement';
 import './AdminPage.css';
 
 export function AdminPage() {
@@ -39,18 +40,31 @@ export function AdminPage() {
         >
           הזנת נתון היסטורי
         </button>
+        <button
+          className={tab === 'admins' ? 'tab active' : 'tab'}
+          onClick={() => setTab('admins')}
+        >
+          ניהול מנהלים
+        </button>
       </div>
 
-      <div className="admin-content">
+      {tab === 'admins' ? (
         <div className="card admin-form-card">
-          {tab === 'daily' ? <AdminDailyForm readings={readings} /> : <AdminHistoricalForm />}
+          <h2>מנהלי המערכת</h2>
+          <AdminManagement />
         </div>
+      ) : (
+        <div className="admin-content">
+          <div className="card admin-form-card">
+            {tab === 'daily' ? <AdminDailyForm readings={readings} /> : <AdminHistoricalForm />}
+          </div>
 
-        <div className="card admin-list-card">
-          <h2>רשומות אחרונות</h2>
-          {loading ? <p>טוען…</p> : <AdminReadingsList readings={readings} />}
+          <div className="card admin-list-card">
+            <h2>רשומות אחרונות</h2>
+            {loading ? <p>טוען…</p> : <AdminReadingsList readings={readings} />}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

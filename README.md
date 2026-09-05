@@ -29,12 +29,15 @@ cp .env.example .env
 
 ### 3. הרשאות מנהלים
 
-יש שני מקומות לעדכן עם האימיילים האמיתיים של המנהלים (יגאל ואודי) — **אין Cloud Functions בטיר החינמי אז אין מקור אמת אחד משותף, צריך לעדכן ידנית בשני המקומות:**
+רשימת המנהלים חיה ב-Firestore, בקולקציה `admins` (מסמך אחד לכל מנהל, ה-id הוא כתובת האימייל באותיות קטנות) — לא רשימה קשיחה בקוד. `firestore.rules` אוכף לפיה מי שיש לו מסמך שם יכול לכתוב ל-DB; עמוד הניהול (`/admin`, טאב "ניהול מנהלים") נותן לכל מנהל קיים להוסיף או להסיר מנהלים אחרים לפי כתובת Gmail.
 
-- `src/config/admins.js` — משפיע רק על תצוגת ה-UI (הסתרת/הצגת כפתורי ניהול).
-- `firestore.rules` — האכיפה האמיתית. מי שלא ברשימה כאן לא יוכל לכתוב ל-DB גם אם הוא מצליח להתחבר.
+**המנהל הראשון** חייב להיזרע ידנית דרך service account, כי אף אחד עוד לא עומד בתנאי ה-`isAdmin()` כדי להוסיף את עצמו דרך האפליקציה:
 
-עדכן את `yigal.sharoni@gmail.com` הפלייסהולדר לכתובת ה-Gmail האמיתית של יגאל בשני הקבצים.
+```bash
+node scripts/bootstrapAdmin.js ./serviceAccountKey.json you@gmail.com
+```
+
+(ראה סעיף "ייבוא היסטוריית הוואטסאפ" למטה לגבי יצירת `serviceAccountKey.json`.) מרגע שיש מנהל אחד, כל השאר מתווספים דרך עמוד הניהול עצמו — אין צורך לגעת בקוד.
 
 ### 4. Firebase CLI
 
@@ -97,16 +100,17 @@ firebase deploy --only hosting
 ```
 src/
   firebase.js               # אתחול Firebase (Auth, Firestore)
-  config/admins.js          # רשימת אימיילי מנהלים (UI בלבד — האכיפה ב-firestore.rules)
-  contexts/AuthContext.jsx  # מצב התחברות Google
+  contexts/AuthContext.jsx  # מצב התחברות Google + בדיקת admin מול Firestore
   hooks/useReadings.js      # subscription לכל רשומות המשקעים
+  hooks/useAdmins.js        # subscription לרשימת המנהלים (admins collection)
   utils/season.js           # לוגיקת עונה (ספטמבר–אוגוסט)
   utils/historicalAverage.js# עקומת ממוצע רב-שנתי מקורבת
-  components/                # StatCard, SeasonChart, SeasonCompareChart, טפסי ניהול
+  components/                # StatCard, SeasonChart, SeasonCompareChart, טפסי ניהול, AdminManagement
   pages/                      # PublicPage, AdminLoginPage, AdminPage
 scripts/
   parseWhatsapp.js           # פרסור _chat.txt -> JSON
   importToFirestore.js       # ייבוא JSON -> Firestore
+  bootstrapAdmin.js          # זריעת המנהל הראשון בקולקציית admins
   data/readings-import.json  # תוצאת הפרסור (221 רשומות)
-firestore.rules              # public read, admin-only write
+firestore.rules              # public read, admin-only write; admins collection דינמית
 ```
