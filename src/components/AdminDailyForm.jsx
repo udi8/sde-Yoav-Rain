@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { useAuth } from '../contexts/AuthContext';
 import { seasonForDate, seasonLabel } from '../utils/season';
 import { formatDateIL } from '../utils/format';
 import { buildDailyReadingMessage, buildWhatsAppShareUrl } from '../utils/whatsapp';
@@ -12,6 +13,7 @@ function todayISO() {
 }
 
 export function AdminDailyForm({ readings }) {
+  const { user } = useAuth();
   const [date, setDate] = useState(todayISO());
   const [amountMm, setAmountMm] = useState('');
   const [cumulativeOverride, setCumulativeOverride] = useState('');
@@ -49,6 +51,7 @@ export function AdminDailyForm({ readings }) {
       cumulativeMm,
       note: null,
       source: 'manual',
+      enteredBy: user?.displayName || user?.email || null,
     });
     return cumulativeMm;
   }

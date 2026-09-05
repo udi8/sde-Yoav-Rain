@@ -50,7 +50,13 @@ export function PublicPage() {
                 label="גשם היום"
                 value={latest ? latest.amountMm : '—'}
                 unit="מ״מ"
-                sub={latest ? formatDateIL(latest.date) : 'אין נתונים עדיין'}
+                sub={
+                  latest
+                    ? [formatDateIL(latest.date), latest.enteredBy && `נמדד ע״י ${latest.enteredBy}`]
+                        .filter(Boolean)
+                        .join(' · ')
+                    : 'אין נתונים עדיין'
+                }
               />
               <StatCard
                 label={`מצטבר לעונת ${seasonLabel(nowSeason)}`}

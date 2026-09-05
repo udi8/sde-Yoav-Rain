@@ -64,6 +64,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
             <th>יום</th>
             <th>מצטבר</th>
             <th>מקור</th>
+            <th>הוזן ע״י</th>
             <th></th>
           </tr>
         </thead>
@@ -76,6 +77,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
               <td>
                 <span className="source-tag">{SOURCE_LABEL[r.source] || r.source}</span>
               </td>
+              <td>{r.enteredBy || '—'}</td>
               <td>
                 <button
                   className="delete-btn"
@@ -90,7 +92,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
           ))}
           {visible.length === 0 && (
             <tr>
-              <td colSpan={5} className="empty-row">
+              <td colSpan={6} className="empty-row">
                 אין רשומות
               </td>
             </tr>

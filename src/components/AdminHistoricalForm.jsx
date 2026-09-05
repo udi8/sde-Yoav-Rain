@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { useAuth } from '../contexts/AuthContext';
 import { seasonForDate } from '../utils/season';
 import { formatDateIL } from '../utils/format';
 
@@ -9,6 +10,7 @@ import { formatDateIL } from '../utils/format';
 // there's no reliable "previous reading" to build on for old, possibly
 // gappy, paper records — so it's typed in directly.
 export function AdminHistoricalForm() {
+  const { user } = useAuth();
   const [date, setDate] = useState('');
   const [amountMm, setAmountMm] = useState('');
   const [cumulativeMm, setCumulativeMm] = useState('');
@@ -30,6 +32,7 @@ export function AdminHistoricalForm() {
         cumulativeMm: Number(cumulativeMm),
         note: note || null,
         source: 'historical',
+        enteredBy: user?.displayName || user?.email || null,
       });
       setMessage({ type: 'ok', text: `נשמר נתון היסטורי: ${formatDateIL(date)}` });
       setDate('');
