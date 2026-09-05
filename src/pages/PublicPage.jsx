@@ -31,7 +31,7 @@ export function PublicPage() {
         <div className="container header-row">
           <div>
             <h1>מד-גשם שדה יואב</h1>
-            <p className="subtitle">מדידות יומיות מאת יגאל שרוני</p>
+            <p className="subtitle">מדידות יומיות של משקעים</p>
           </div>
           <Link to="/admin/login" className="admin-link">
             כניסת מנהלים
@@ -89,7 +89,7 @@ export function PublicPage() {
 
       <footer className="page-footer">
         <div className="container">
-          <p>קיבוץ שדה יואב · נתוני משקעים נאספים על ידי יגאל שרוני מדי בוקר</p>
+          <p>קיבוץ שדה יואב · נתוני משקעים נאספים מדי בוקר</p>
         </div>
       </footer>
     </div>

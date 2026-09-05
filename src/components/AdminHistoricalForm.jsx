@@ -4,7 +4,7 @@ import { db } from '../firebase';
 import { seasonForDate } from '../utils/season';
 import { formatDateIL } from '../utils/format';
 
-// Free-date entry for pre-2021 data (Yigal's 1991 paper records, not yet
+// Free-date entry for pre-2021 data (1991 paper records, not yet
 // digitized). Unlike the daily form, cumulative isn't auto-computed here —
 // there's no reliable "previous reading" to build on for old, possibly
 // gappy, paper records — so it's typed in directly.

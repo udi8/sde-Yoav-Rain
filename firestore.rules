@@ -16,7 +16,7 @@ service cloud.firestore {
     // ─── Rainfall readings ──────────────────────────────────────────────
     // One doc per date (doc id = "YYYY-MM-DD"). `source` distinguishes
     // 'whatsapp-import' | 'manual' (daily admin form) | 'historical'
-    // (pre-2021 data typed in later from Yigal's 1991 paper records).
+    // (pre-2021 data typed in later from an old paper record).
     match /readings/{date} {
       allow read: if true; // public page needs no auth
       allow write: if isAdmin();

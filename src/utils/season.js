@@ -1,5 +1,5 @@
-// A rainfall "season" runs September 1 -> August 31, matching how Yigal has
-// always tracked it (and how Israeli rain years are conventionally counted).
+// A rainfall "season" runs September 1 -> August 31, how Israeli rain years
+// are conventionally counted.
 
 export function seasonForDate(date) {
   const d = typeof date === 'string' ? new Date(date + 'T00:00:00') : date;

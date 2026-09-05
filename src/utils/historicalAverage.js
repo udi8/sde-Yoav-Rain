@@ -1,10 +1,10 @@
 // Approximate multi-year average cumulative-rainfall curve, used to draw the
 // reference line on the season chart.
 //
-// There is no full historical daily/monthly average table yet (Yigal's
-// paper records from 1991 haven't been digitized — see the "היסטוריה"
+// There is no full historical daily/monthly average table yet (paper
+// records from 1991 haven't been digitized — see the "היסטוריה"
 // admin page). Until that exists, this curve is reconstructed from the few
-// reference points Yigal has mentioned in the WhatsApp group over the years:
+// reference points mentioned in the WhatsApp group over the years:
 //
 //   - end of Dec 2021: actual was 60% of the seasonal-average-to-date
 //     (actual ~121.5mm -> avg ~202mm)

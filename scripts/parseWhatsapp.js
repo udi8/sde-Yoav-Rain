@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * Parses a WhatsApp chat export (_chat.txt) of Yigal Sharoni's daily rainfall
+ * Parses a WhatsApp chat export (_chat.txt) of one sender's daily rainfall
  * reports into structured JSON rainfall readings.
  *
  * Usage:
  *   node scripts/parseWhatsapp.js <path-to-_chat.txt> [output.json]
  *
  * Message shape in the export (one WhatsApp message, exported as 2+ lines):
- *   [DD/MM/YYYY, H:MM:SS] Yigal Sharoni: 20.5 ממ
+ *   [DD/MM/YYYY, H:MM:SS] <Sender Name>: 20.5 ממ
  *   מצטבר: 43.5 ממ
  *
  * Known noise the regexes below tolerate:
@@ -23,6 +23,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+// Must match the sender name exactly as it appears in the WhatsApp export.
 const SENDER = 'Yigal Sharoni';
 
 const HEADER_RE =
@@ -39,7 +40,7 @@ const CUMULATIVE_RE =
 const AMOUNT_AND_CUMULATIVE_RE =
   /^(\d+(?:[.,]\d+)?)\s*מ*\s*מצטבר\s*,?\s*:?\s*(\d+(?:[.,]\d+)?)/;
 
-// Yigal occasionally sends a follow-up message correcting a typo in the same
+// The sender occasionally sends a follow-up message correcting a typo in the same
 // day's cumulative total ("תיקון טעות: מצטבר: 346 ממ", "אופס, 439.5 ממ",
 // "399.5 כמובן"). These are found by hand in the source chat (see below)
 // rather than guessed by regex, since a generic "any lone number = a
@@ -131,7 +132,7 @@ function parseChat(text) {
       date,
       season,
       amountMm,
-      cumulativeMm, // may be null if Yigal didn't report it that day
+      cumulativeMm, // may be null if not reported that day
       note: noteLines.length ? noteLines.join(' ') : null,
       source: 'whatsapp-import',
       reportedAt: `${b.year}-${b.month}-${b.day}T${b.hour.padStart(2, '0')}:${b.minute}:${b.second}`,
@@ -165,8 +166,8 @@ function parseChat(text) {
     }
   }
 
-  // A handful of readings have no "מצטבר" line at all (Yigal just sent the
-  // day's amount). Fill those in as running total = previous known
+  // A handful of readings have no "מצטבר" line at all (just the day's
+  // amount was sent). Fill those in as running total = previous known
   // cumulative + today's amount, scoped per season.
   const filled = [];
   let runningTotal = null;
