@@ -38,6 +38,9 @@ export function SeasonCompareChart({ readings, currentSeason }) {
         <h3>השוואה בין עונות</h3>
         <span className="compare-sub">קו מקווקו = ממוצע רב-שנתי ({FULL_SEASON_AVERAGE_MM} מ״מ)</span>
       </div>
+      {/* The table below repeats this data accessibly, so the chart itself
+          is hidden from screen readers rather than exposing an unlabeled SVG. */}
+      <div aria-hidden="true">
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={data} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
@@ -67,6 +70,7 @@ export function SeasonCompareChart({ readings, currentSeason }) {
           </Bar>
         </BarChart>
       </ResponsiveContainer>
+      </div>
 
       <table className="compare-table">
         <thead>
@@ -84,7 +88,10 @@ export function SeasonCompareChart({ readings, currentSeason }) {
                 {d.ongoing && <span className="tag">מתמשכת</span>}
               </td>
               <td>{d.totalMm}</td>
-              <td className={d.pctOfAvg >= 100 ? 'pct-high' : 'pct-low'}>{d.pctOfAvg}%</td>
+              <td className={d.pctOfAvg >= 100 ? 'pct-high' : 'pct-low'}>
+                <span aria-hidden="true">{d.pctOfAvg >= 100 ? '▲' : '▼'} </span>
+                {d.pctOfAvg}%
+              </td>
             </tr>
           ))}
         </tbody>

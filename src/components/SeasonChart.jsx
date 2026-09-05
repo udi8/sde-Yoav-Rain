@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'recharts';
 import { dayOfSeason, seasonStartYear, seasonLabel } from '../utils/season';
-import { averageCurve } from '../utils/historicalAverage';
+import { averageCurve, FULL_SEASON_AVERAGE_MM } from '../utils/historicalAverage';
 import './SeasonChart.css';
 
 const MONTHS_HE = [
@@ -62,11 +62,18 @@ export function SeasonChart({ season, readings }) {
   const data = Array.from(byDay.values()).sort((a, b) => a.day - b.day);
   const ticks = monthTicks(startYear);
 
+  const latestActual = [...actualPoints].sort((a, b) => b.day - a.day)[0];
+  const chartSummary = latestActual
+    ? `נכון ל-${latestActual.date}: ${latestActual.actualMm} מ״מ מצטבר, לעומת ממוצע רב-שנתי של ${FULL_SEASON_AVERAGE_MM} מ״מ לעונה שלמה.`
+    : `אין עדיין נתונים לעונת ${seasonLabel(season)}.`;
+
   return (
     <div className="season-chart card">
       <div className="season-chart-header">
         <h3>עונת {seasonLabel(season)}</h3>
       </div>
+      <p className="sr-only">{chartSummary}</p>
+      <div aria-hidden="true">
       <ResponsiveContainer width="100%" height={320}>
         <ComposedChart data={data} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
@@ -118,6 +125,7 @@ export function SeasonChart({ season, readings }) {
           />
         </ComposedChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 }
