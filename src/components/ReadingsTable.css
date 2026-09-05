@@ -1,0 +1,16 @@
+.readings-card {
+  padding: 24px 12px;
+}
+
+.readings-card-header {
+  padding: 0 16px 12px;
+}
+
+.readings-card-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.readings-card .readings-list {
+  padding: 0 4px;
+}

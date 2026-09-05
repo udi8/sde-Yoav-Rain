@@ -4,6 +4,7 @@ import { useReadings } from '../hooks/useReadings';
 import { StatCard } from '../components/StatCard';
 import { SeasonChart } from '../components/SeasonChart';
 import { SeasonCompareChart } from '../components/SeasonCompareChart';
+import { ReadingsTable } from '../components/ReadingsTable';
 import { currentSeason, seasonLabel, sortedSeasons } from '../utils/season';
 import { FULL_SEASON_AVERAGE_MM } from '../utils/historicalAverage';
 import { formatDateIL } from '../utils/format';
@@ -88,6 +89,13 @@ export function PublicPage() {
 
             <section>
               <SeasonCompareChart readings={readings} currentSeason={nowSeason} />
+            </section>
+
+            <section>
+              <ReadingsTable
+                readings={readings.filter((r) => r.season === activeSeason)}
+                seasonLabel={seasonLabel(activeSeason)}
+              />
             </section>
           </>
         )}
