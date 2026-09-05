@@ -104,6 +104,20 @@
   font-size: 13px;
 }
 
+.readings-list-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.readings-list-controls select {
+  width: auto;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
 .readings-list {
   overflow-x: auto;
 }

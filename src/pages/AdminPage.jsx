@@ -60,7 +60,7 @@ export function AdminPage() {
           </div>
 
           <div className="card admin-list-card">
-            <h2>רשומות אחרונות</h2>
+            <h2>רשומות</h2>
             {loading ? <p>טוען…</p> : <AdminReadingsList readings={readings} />}
           </div>
         </div>

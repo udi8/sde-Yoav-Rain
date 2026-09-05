@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { sortedSeasons, seasonLabel } from '../utils/season';
 
 const SOURCE_LABEL = {
   'whatsapp-import': 'ייבוא וואטסאפ',
@@ -10,8 +11,18 @@ const SOURCE_LABEL = {
 
 export function AdminReadingsList({ readings, limit = 15 }) {
   const [deletingId, setDeletingId] = useState(null);
+  const [seasonFilter, setSeasonFilter] = useState('all');
+  const [showAll, setShowAll] = useState(false);
 
-  const recent = [...readings].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, limit);
+  const seasons = useMemo(
+    () => sortedSeasons([...new Set(readings.map((r) => r.season))]).reverse(),
+    [readings]
+  );
+
+  const filtered =
+    seasonFilter === 'all' ? readings : readings.filter((r) => r.season === seasonFilter);
+  const sorted = [...filtered].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const visible = showAll ? sorted : sorted.slice(0, limit);
 
   async function handleDelete(date) {
     if (!confirm(`למחוק את הרשומה של ${date}?`)) return;
@@ -25,6 +36,26 @@ export function AdminReadingsList({ readings, limit = 15 }) {
 
   return (
     <div className="readings-list">
+      <div className="readings-list-controls">
+        <select
+          value={seasonFilter}
+          onChange={(e) => setSeasonFilter(e.target.value)}
+          aria-label="סינון לפי עונה"
+        >
+          <option value="all">כל העונות ({readings.length})</option>
+          {seasons.map((s) => (
+            <option key={s} value={s}>
+              עונת {seasonLabel(s)}
+            </option>
+          ))}
+        </select>
+        {sorted.length > limit && (
+          <button type="button" className="btn btn-secondary" onClick={() => setShowAll((v) => !v)}>
+            {showAll ? `הצג ${limit} אחרונות בלבד` : `הצג את כל ${sorted.length} הרשומות`}
+          </button>
+        )}
+      </div>
+
       <table className="readings-table">
         <thead>
           <tr>
@@ -36,7 +67,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
           </tr>
         </thead>
         <tbody>
-          {recent.map((r) => (
+          {visible.map((r) => (
             <tr key={r.date}>
               <td>{r.date}</td>
               <td>{r.amountMm ?? '—'}</td>
@@ -56,10 +87,10 @@ export function AdminReadingsList({ readings, limit = 15 }) {
               </td>
             </tr>
           ))}
-          {recent.length === 0 && (
+          {visible.length === 0 && (
             <tr>
               <td colSpan={5} className="empty-row">
-                אין עדיין רשומות
+                אין רשומות
               </td>
             </tr>
           )}
