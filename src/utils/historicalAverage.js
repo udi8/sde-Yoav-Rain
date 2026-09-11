@@ -1,41 +1,41 @@
-// Approximate multi-year average cumulative-rainfall curve, used to draw the
-// reference line on the season chart.
+// Multi-year average cumulative-rainfall curve, used to draw the reference
+// line on the season chart.
 //
-// There is no full historical daily/monthly average table yet (paper
-// records from 1991 haven't been digitized — see the "היסטוריה"
-// admin page). Until that exists, this curve is reconstructed from the few
-// reference points mentioned in the WhatsApp group over the years:
+// Sourced from the kibbutz's own paper rain-average table ("לוח גשם רב
+// שנתי") — Negba station 1939/40-1990/91, Sde Yoav itself from 1991/92
+// onward, 86 seasons total. Its "ממוצע רב שנתי" (multi-year average) row
+// gives a real monthly average, not a guess:
 //
-//   - end of Dec 2021: actual was 60% of the seasonal-average-to-date
-//     (actual ~121.5mm -> avg ~202mm)
-//   - end of Jan 2022: 120% of seasonal-average-to-date, 82% of full-season
-//     average (actual ~395mm -> avg-to-date ~329mm, full-season avg ~482mm)
-//   - end of Feb 2022: 114% of period average, 97% of full-season average
-//     (actual ~468.5mm -> avg-to-date ~411mm, full-season avg ~483mm)
-//   - "ממוצע רב שנתי: 485 מ״מ" (full-season average, quoted directly)
-//   - "ממוצע רב שנתי לסוף אפריל: 489 מ״מ" (avg-to-date at end of April)
+//   ספט 1 | אוק 19 | נוב 68 | דצמ 118 | ינו 127 | פבר 86 | מרץ 55 |
+//   אפר 15 | מאי 3 | יוני 0.22    (מ״מ, ממוצע לחודש)
 //
-// Points between these anchors (Sept/Oct/Nov, and March) are *not* backed by
-// a quoted figure — they're a straight-line guess between the nearest known
-// anchors. Treat this whole curve as approximate: good enough to draw a
-// reference line on the chart, not for anything more precise. Update
-// FULL_SEASON_AVERAGE_MM and the anchors below once real historical data is
-// imported (see the admin "היסטוריה" page).
+// The table's own "סה״כ" (489mm) is the traditional total through the end
+// of April — cumulative Sept-Apr above sums to exactly that. May and June
+// add a further ~3.2mm of trace rain most years; July/August aren't
+// tracked in the source table at all (effectively zero), so the curve
+// stays flat past June.
+//
+// FULL_SEASON_AVERAGE_MM keeps the traditional end-of-April figure, since
+// that's the number people actually mean by "the multi-year average" —
+// the curve itself runs very slightly past it into May/June, which is
+// expected and fine for a reference line.
 
 export const FULL_SEASON_AVERAGE_MM = 489;
 
 // [dayOfSeason (0 = Sept 1), cumulative average mm]
 const ANCHORS = [
   [0, 0],
-  [60, 15], // end of Oct — no source, light-rain estimate
-  [91, 70], // end of Nov — no source, estimate
-  [121, 202], // end of Dec — derived from the 60% quote above
-  [152, 329], // end of Jan — derived from the 120% / 82% quotes above
-  [180, 411], // end of Feb — derived from the 114% / 97% quotes above
-  [211, 460], // end of Mar — interpolated, no direct source
-  [242, 489], // end of Apr — quoted directly ("489 מ״מ")
-  [273, 489], // end of May — flat, negligible rain this late
-  [365, 489], // end of season — flat
+  [29, 1], // end of Sept
+  [60, 20], // end of Oct
+  [90, 88], // end of Nov
+  [121, 206], // end of Dec
+  [152, 333], // end of Jan
+  [180, 419], // end of Feb
+  [211, 474], // end of Mar
+  [241, 489], // end of Apr — matches the table's own "סה״כ"
+  [272, 492], // end of May
+  [302, 492.2], // end of Jun
+  [364, 492.2], // end of season — flat, no Jul/Aug data in the source table
 ];
 
 export function averageCumulativeAtDay(day) {
