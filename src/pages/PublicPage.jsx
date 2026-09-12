@@ -34,6 +34,24 @@ export function PublicPage() {
 
   const pctOfAvg = latest ? Math.round((latest.cumulativeMm / FULL_SEASON_AVERAGE_MM) * 100) : null;
 
+  // The actual average across every completed season in the system so
+  // far — informational only. FULL_SEASON_AVERAGE_MM (the 489 figure) is
+  // the one everything else on the page compares against; this just notes
+  // how our own recorded seasons compare to it, and updates on its own as
+  // more seasons are added.
+  const actualAverage = useMemo(() => {
+    const bySeason = new Map();
+    for (const r of readings) {
+      if (r.season === nowSeason) continue; // exclude the still-in-progress season
+      const prev = bySeason.get(r.season);
+      if (!prev || r.date > prev.date) bySeason.set(r.season, r);
+    }
+    if (bySeason.size === 0) return null;
+    const totals = [...bySeason.values()].map((r) => r.cumulativeMm);
+    const avg = totals.reduce((sum, v) => sum + v, 0) / totals.length;
+    return { count: totals.length, avg, diff: avg - FULL_SEASON_AVERAGE_MM };
+  }, [readings, nowSeason]);
+
   const readingsTableRef = useRef(null);
 
   function handleSelectSeason(season) {
@@ -83,7 +101,20 @@ export function PublicPage() {
                 unit="מ״מ"
                 sub={pctOfAvg !== null ? `${pctOfAvg}% מהממוצע הרב-שנתי` : undefined}
               />
-              <StatCard label="ממוצע רב-שנתי לעונה" value={FULL_SEASON_AVERAGE_MM} unit="מ״מ" />
+              <StatCard
+                label="ממוצע רב-שנתי לעונה"
+                value={FULL_SEASON_AVERAGE_MM}
+                unit="מ״מ"
+                sub={
+                  actualAverage
+                    ? `ממוצע בפועל (${actualAverage.count} עונות במערכת): ${
+                        Math.round(actualAverage.avg * 10) / 10
+                      } מ״מ (${actualAverage.diff >= 0 ? '+' : ''}${
+                        Math.round(actualAverage.diff * 10) / 10
+                      })`
+                    : undefined
+                }
+              />
             </section>
 
             <section className="season-select-row">
