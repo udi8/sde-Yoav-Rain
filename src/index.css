@@ -137,16 +137,48 @@ select {
   max-width: 100%;
 }
 
-/* A native date input's value is a fixed-width calendar date, not free
-   text — stretching its box to the full row width (as the rule above
-   does for every input) leaves it far larger than what it holds, which
-   on some browsers also spaces the day/month/year segments out to fill
-   that width. Sizing it to its own content keeps it compact instead. */
-input[type='date'] {
-  width: auto;
-  min-width: 180px;
-  max-width: 100%;
+/* Wraps a real (but invisible) <input type="date"> with a plain text
+   label showing our own DD.MM.YYYY formatting on top — see DateField.jsx.
+   Sized to content rather than stretched full-width, like the box below
+   it holds a fixed-size date, not free text. */
+.date-field {
+  position: relative;
+  display: inline-flex;
   align-self: flex-start;
+  max-width: 100%;
+}
+
+.date-field-display {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 180px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.date-field:has(input:focus-visible) .date-field-display {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.date-field input[type='date'] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  align-self: auto;
+  cursor: pointer;
 }
 
 input:focus,
