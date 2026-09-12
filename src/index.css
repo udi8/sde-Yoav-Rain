@@ -137,6 +137,18 @@ select {
   max-width: 100%;
 }
 
+/* A native date input's value is a fixed-width calendar date, not free
+   text — stretching its box to the full row width (as the rule above
+   does for every input) leaves it far larger than what it holds, which
+   on some browsers also spaces the day/month/year segments out to fill
+   that width. Sizing it to its own content keeps it compact instead. */
+input[type='date'] {
+  width: auto;
+  min-width: 180px;
+  max-width: 100%;
+  align-self: flex-start;
+}
+
 input:focus,
 select:focus {
   outline: 2px solid var(--accent);
