@@ -38,8 +38,10 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
         <h3>השוואה בין עונות</h3>
         <span className="compare-sub">קו מקווקו = ממוצע רב-שנתי ({FULL_SEASON_AVERAGE_MM} מ״מ)</span>
       </div>
-      {/* The table below repeats this data accessibly, so the chart itself
-          is hidden from screen readers rather than exposing an unlabeled SVG. */}
+      {/* The table below repeats this data accessibly (including the same
+          season-select behavior via its rows), so the chart itself stays
+          hidden from screen readers rather than exposing an unlabeled SVG —
+          aria-hidden doesn't affect the bars' onClick for mouse/touch users. */}
       <div aria-hidden="true">
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={data} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
@@ -53,6 +55,7 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
             strokeWidth={2}
           />
           <Tooltip
+            cursor={false}
             formatter={(value, _name, item) => [
               `${value} מ״מ (${item.payload.pctOfAvg}% מהממוצע)`,
               item.payload.ongoing ? 'מצטבר עד כה' : 'סה״כ עונה',
@@ -63,7 +66,12 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
               borderRadius: 10,
             }}
           />
-          <Bar dataKey="totalMm" radius={[6, 6, 0, 0]}>
+          <Bar
+            dataKey="totalMm"
+            radius={[6, 6, 0, 0]}
+            onClick={(item) => onSelectSeason?.(item.season)}
+            style={{ cursor: onSelectSeason ? 'pointer' : undefined }}
+          >
             {data.map((d) => (
               <Cell key={d.season} fill={d.season === selectedSeason ? 'var(--accent)' : 'var(--rain)'} />
             ))}
