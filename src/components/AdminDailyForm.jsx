@@ -116,6 +116,7 @@ export function AdminDailyForm({ readings }) {
         <input
           id="date"
           type="date"
+          lang="he"
           value={date}
           onChange={(e) => handleDateChange(e.target.value)}
           required

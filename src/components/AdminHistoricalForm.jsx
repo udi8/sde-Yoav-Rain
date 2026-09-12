@@ -54,7 +54,14 @@ export function AdminHistoricalForm() {
 
       <div className="field">
         <label htmlFor="h-date">תאריך</label>
-        <input id="h-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+        <input
+          id="h-date"
+          type="date"
+          lang="he"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
       </div>
 
       <div className="field">
