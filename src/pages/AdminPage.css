@@ -198,4 +198,32 @@
   .admin-actions .btn {
     flex: 1;
   }
+
+  /* At this width the 3 tab labels no longer fit on one scrollable row —
+     the row overflowed and, with the scrollbar hidden, the last tab's
+     text got silently clipped instead of being reachable by scrolling.
+     A 3-column grid spanning the full width removes the overflow
+     entirely: each tab gets an equal share of the space and wraps to a
+     second line if needed, so the full label is always visible. */
+  .tabs-wrap {
+    width: 100%;
+    border-radius: 16px;
+    overflow: visible;
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+  }
+
+  .tab {
+    flex-shrink: initial;
+    white-space: normal;
+    line-height: 1.25;
+    padding: 8px 6px;
+    font-size: 12.5px;
+    border-radius: 12px;
+    text-align: center;
+  }
 }
