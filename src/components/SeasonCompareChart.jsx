@@ -13,7 +13,7 @@ import { sortedSeasons, seasonLabel } from '../utils/season';
 import { FULL_SEASON_AVERAGE_MM } from '../utils/historicalAverage';
 import './SeasonCompareChart.css';
 
-export function SeasonCompareChart({ readings, currentSeason }) {
+export function SeasonCompareChart({ readings, currentSeason, selectedSeason, onSelectSeason }) {
   const bySeason = new Map();
   for (const r of readings) {
     const prev = bySeason.get(r.season);
@@ -82,7 +82,19 @@ export function SeasonCompareChart({ readings, currentSeason }) {
         </thead>
         <tbody>
           {[...data].reverse().map((d) => (
-            <tr key={d.season}>
+            <tr
+              key={d.season}
+              className={d.season === selectedSeason ? 'compare-row-selected' : undefined}
+              onClick={() => onSelectSeason?.(d.season)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onSelectSeason?.(d.season);
+                }
+              }}
+              role={onSelectSeason ? 'button' : undefined}
+              tabIndex={onSelectSeason ? 0 : undefined}
+            >
               <td>
                 {d.label}
                 {d.ongoing && <span className="tag">מתמשכת</span>}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useReadings } from '../hooks/useReadings';
 import { StatCard } from '../components/StatCard';
@@ -33,6 +33,16 @@ export function PublicPage() {
   const activeSeason = seasons.includes(selectedSeason) ? selectedSeason : nowSeason;
 
   const pctOfAvg = latest ? Math.round((latest.cumulativeMm / FULL_SEASON_AVERAGE_MM) * 100) : null;
+
+  const readingsTableRef = useRef(null);
+
+  function handleSelectSeason(season) {
+    setSelectedSeason(season);
+    readingsTableRef.current?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start',
+    });
+  }
 
   return (
     <div className="public-page">
@@ -96,10 +106,15 @@ export function PublicPage() {
             </section>
 
             <section>
-              <SeasonCompareChart readings={readings} currentSeason={nowSeason} />
+              <SeasonCompareChart
+                readings={readings}
+                currentSeason={nowSeason}
+                selectedSeason={activeSeason}
+                onSelectSeason={handleSelectSeason}
+              />
             </section>
 
-            <section>
+            <section ref={readingsTableRef}>
               <ReadingsTable
                 readings={readings.filter((r) => r.season === activeSeason)}
                 seasonLabel={seasonLabel(activeSeason)}
