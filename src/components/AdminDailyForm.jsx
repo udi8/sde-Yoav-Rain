@@ -5,7 +5,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { seasonForDate, seasonLabel } from '../utils/season';
 import { formatDateIL } from '../utils/format';
 import { buildDailyReadingMessage, buildWhatsAppShareUrl } from '../utils/whatsapp';
-import { DateField } from './DateField';
 
 function todayISO() {
   const d = new Date();
@@ -114,7 +113,14 @@ export function AdminDailyForm({ readings }) {
     <form className="admin-form" onSubmit={handleSave}>
       <div className="field">
         <label htmlFor="date">תאריך</label>
-        <DateField id="date" value={date} onChange={handleDateChange} required />
+        <input
+          id="date"
+          type="date"
+          lang="he"
+          value={date}
+          onChange={(e) => handleDateChange(e.target.value)}
+          required
+        />
       </div>
 
       <div className="field">

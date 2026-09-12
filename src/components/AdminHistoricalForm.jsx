@@ -4,7 +4,6 @@ import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import { seasonForDate } from '../utils/season';
 import { formatDateIL } from '../utils/format';
-import { DateField } from './DateField';
 
 // Free-date entry for pre-2021 data (1991 paper records, not yet
 // digitized). Unlike the daily form, cumulative isn't auto-computed here —
@@ -55,7 +54,14 @@ export function AdminHistoricalForm() {
 
       <div className="field">
         <label htmlFor="h-date">תאריך</label>
-        <DateField id="h-date" value={date} onChange={setDate} required />
+        <input
+          id="h-date"
+          type="date"
+          lang="he"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
       </div>
 
       <div className="field">
