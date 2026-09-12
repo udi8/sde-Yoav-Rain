@@ -9,7 +9,7 @@ export function buildDailyReadingMessage({ dateLabel, amountMm, cumulativeMm, se
   return [
     'מד-גשם שדה יואב 🌧️',
     dateLabel,
-    `גשם היום: ${amountMm} מ״מ`,
+    `גשם היום: ${amountMm ?? '—'} מ״מ`,
     `מצטבר לעונת ${seasonLabel}: ${cumulativeMm} מ״מ`,
     '',
     'לגרפים ולהיסטוריה המלאה:',

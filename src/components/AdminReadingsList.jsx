@@ -3,6 +3,7 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { sortedSeasons, seasonLabel } from '../utils/season';
 import { formatDateIL } from '../utils/format';
+import { buildDailyReadingMessage, buildWhatsAppShareUrl } from '../utils/whatsapp';
 
 const SOURCE_LABEL = {
   'whatsapp-import': 'וואטסאפ',
@@ -33,6 +34,16 @@ export function AdminReadingsList({ readings, limit = 15 }) {
     } finally {
       setDeletingId(null);
     }
+  }
+
+  function handleShare(r) {
+    const text = buildDailyReadingMessage({
+      dateLabel: formatDateIL(r.date),
+      amountMm: r.amountMm,
+      cumulativeMm: r.cumulativeMm,
+      seasonLabel: seasonLabel(r.season),
+    });
+    window.open(buildWhatsAppShareUrl(text), '_blank', 'noopener,noreferrer');
   }
 
   return (
@@ -66,6 +77,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
             <th>מקור</th>
             <th>הוזן ע״י</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -81,6 +93,16 @@ export function AdminReadingsList({ readings, limit = 15 }) {
               <td>
                 <button
                   className="delete-btn"
+                  onClick={() => handleShare(r)}
+                  aria-label={`שליחת רשומת ${formatDateIL(r.date)} בוואטסאפ`}
+                  title="שליחה בוואטסאפ"
+                >
+                  ↗
+                </button>
+              </td>
+              <td>
+                <button
+                  className="delete-btn"
                   onClick={() => handleDelete(r.date)}
                   disabled={deletingId === r.date}
                   aria-label={`מחיקת רשומת ${formatDateIL(r.date)}`}
@@ -92,7 +114,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
           ))}
           {visible.length === 0 && (
             <tr>
-              <td colSpan={6} className="empty-row">
+              <td colSpan={7} className="empty-row">
                 אין רשומות
               </td>
             </tr>
