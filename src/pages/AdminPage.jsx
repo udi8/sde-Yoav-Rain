@@ -30,22 +30,24 @@ export function AdminPage() {
         </div>
       </header>
 
-      <div className="tabs">
-        <button className={tab === 'daily' ? 'tab active' : 'tab'} onClick={() => setTab('daily')}>
-          הזנה יומית
-        </button>
-        <button
-          className={tab === 'historical' ? 'tab active' : 'tab'}
-          onClick={() => setTab('historical')}
-        >
-          הזנת נתון היסטורי
-        </button>
-        <button
-          className={tab === 'admins' ? 'tab active' : 'tab'}
-          onClick={() => setTab('admins')}
-        >
-          ניהול מנהלים
-        </button>
+      <div className="tabs-wrap">
+        <div className="tabs">
+          <button className={tab === 'daily' ? 'tab active' : 'tab'} onClick={() => setTab('daily')}>
+            הזנה יומית
+          </button>
+          <button
+            className={tab === 'historical' ? 'tab active' : 'tab'}
+            onClick={() => setTab('historical')}
+          >
+            הזנת נתון היסטורי
+          </button>
+          <button
+            className={tab === 'admins' ? 'tab active' : 'tab'}
+            onClick={() => setTab('admins')}
+          >
+            ניהול מנהלים
+          </button>
+        </div>
       </div>
 
       {tab === 'admins' ? (

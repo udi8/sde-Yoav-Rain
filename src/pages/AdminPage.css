@@ -29,22 +29,31 @@
   gap: 10px;
 }
 
-/* A single-row pill bar. It must never wrap: at border-radius:980px, a
-   wrapped multi-line version of this stretches into a broken lens/stadium
-   shape instead of a rounded rectangle. If the tabs don't fit, scroll
-   horizontally instead — still a pill, just swipeable. */
+/* A single-row pill bar, split into two layers. Safari doesn't reliably
+   clip scrolling content to a rounded corner on the same element that
+   also has overflow-x:auto — content can visibly bleed past the curve.
+   So the rounding + clipping lives on this static outer wrapper... */
+.tabs-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 980px;
+  overflow: hidden;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* ...and the actual horizontal scrolling happens on this plain-edged inner
+   element, which Safari clips correctly since it has no border-radius of
+   its own. It must never wrap: at border-radius:980px on the outer pill, a
+   wrapped multi-line bar would stretch into a broken lens/stadium shape
+   instead of a rounded rectangle — scrolling keeps it a single row. */
 .tabs {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
   gap: 4px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 980px;
   padding: 4px;
-  width: fit-content;
-  max-width: 100%;
 }
 
 .tabs::-webkit-scrollbar {
