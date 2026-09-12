@@ -69,7 +69,7 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
           <Bar
             dataKey="totalMm"
             radius={[6, 6, 0, 0]}
-            onClick={(item) => onSelectSeason?.(item.season)}
+            onClick={(item) => onSelectSeason?.(item.season, { scroll: false })}
             style={{ cursor: onSelectSeason ? 'pointer' : undefined }}
           >
             {data.map((d) => (
@@ -93,11 +93,11 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
             <tr
               key={d.season}
               className={d.season === selectedSeason ? 'compare-row-selected' : undefined}
-              onClick={() => onSelectSeason?.(d.season)}
+              onClick={() => onSelectSeason?.(d.season, { scroll: true })}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  onSelectSeason?.(d.season);
+                  onSelectSeason?.(d.season, { scroll: true });
                 }
               }}
               role={onSelectSeason ? 'button' : undefined}

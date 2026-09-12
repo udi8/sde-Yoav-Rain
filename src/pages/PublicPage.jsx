@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useReadings } from '../hooks/useReadings';
 import { StatCard } from '../components/StatCard';
@@ -52,8 +52,21 @@ export function PublicPage() {
     return { count: totals.length, avg, diff: avg - FULL_SEASON_AVERAGE_MM };
   }, [readings, nowSeason]);
 
-  function handleSelectSeason(season) {
+  const readingsTableRef = useRef(null);
+
+  // Clicking a bar in the chart just highlights that season in place — the
+  // chart is what you're looking at, so the page shouldn't jump away from
+  // it. Clicking a row in the season list below it is a more deliberate
+  // "show me that season's readings" action, so that one still scrolls
+  // down to the detail list.
+  function handleSelectSeason(season, { scroll = false } = {}) {
     setSelectedSeason(season);
+    if (scroll) {
+      readingsTableRef.current?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    }
   }
 
   return (
@@ -139,7 +152,7 @@ export function PublicPage() {
               />
             </section>
 
-            <section>
+            <section ref={readingsTableRef}>
               <ReadingsTable
                 readings={readings.filter((r) => r.season === activeSeason)}
                 seasonLabel={seasonLabel(activeSeason)}
