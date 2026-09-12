@@ -11,5 +11,8 @@ export function buildDailyReadingMessage({ dateLabel, amountMm, cumulativeMm, se
     dateLabel,
     `גשם היום: ${amountMm} מ״מ`,
     `מצטבר לעונת ${seasonLabel}: ${cumulativeMm} מ״מ`,
+    '',
+    'לגרפים ולהיסטוריה המלאה:',
+    'https://sde-yoav-rain.web.app',
   ].join('\n');
 }
