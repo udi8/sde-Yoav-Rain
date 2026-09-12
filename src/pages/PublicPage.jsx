@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useReadings } from '../hooks/useReadings';
 import { StatCard } from '../components/StatCard';
@@ -52,14 +52,8 @@ export function PublicPage() {
     return { count: totals.length, avg, diff: avg - FULL_SEASON_AVERAGE_MM };
   }, [readings, nowSeason]);
 
-  const readingsTableRef = useRef(null);
-
   function handleSelectSeason(season) {
     setSelectedSeason(season);
-    readingsTableRef.current?.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'start',
-    });
   }
 
   return (
@@ -145,7 +139,7 @@ export function PublicPage() {
               />
             </section>
 
-            <section ref={readingsTableRef}>
+            <section>
               <ReadingsTable
                 readings={readings.filter((r) => r.season === activeSeason)}
                 seasonLabel={seasonLabel(activeSeason)}
