@@ -133,6 +133,8 @@ select {
   background: var(--surface);
   color: var(--text);
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 input:focus,

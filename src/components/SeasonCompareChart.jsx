@@ -65,7 +65,7 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
           />
           <Bar dataKey="totalMm" radius={[6, 6, 0, 0]}>
             {data.map((d) => (
-              <Cell key={d.season} fill={d.ongoing ? 'var(--accent)' : 'var(--rain)'} />
+              <Cell key={d.season} fill={d.season === selectedSeason ? 'var(--accent)' : 'var(--rain)'} />
             ))}
           </Bar>
         </BarChart>

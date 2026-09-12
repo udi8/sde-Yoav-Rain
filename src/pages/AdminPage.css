@@ -72,7 +72,7 @@
 
 .admin-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 20px;
   align-items: start;
 }
@@ -80,6 +80,7 @@
 .admin-form-card,
 .admin-list-card {
   padding: 24px;
+  min-width: 0;
 }
 
 .admin-list-card h2 {
@@ -175,7 +176,7 @@
 
 @media (max-width: 800px) {
   .admin-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
