@@ -76,7 +76,6 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
             radius={0}
             onClick={(item) => onSelectSeason?.(item.season, { scroll: false })}
             style={{ cursor: onSelectSeason ? 'pointer' : undefined }}
-            isAnimationActive={false}
           >
             {data.map((d) => (
               <Cell

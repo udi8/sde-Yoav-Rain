@@ -119,7 +119,6 @@ export function SeasonChart({ season, readings }) {
             connectNulls
             dot={{ r: 3, strokeWidth: 0, fill: 'var(--green)' }}
             activeDot={{ r: 5 }}
-            isAnimationActive={false}
           />
           <Line
             type="monotone"
@@ -128,7 +127,6 @@ export function SeasonChart({ season, readings }) {
             strokeWidth={2}
             strokeDasharray="6 4"
             dot={false}
-            isAnimationActive={false}
           />
         </ComposedChart>
       </ResponsiveContainer>
