@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
-import { deleteDoc, doc } from 'firebase/firestore';
+import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { useAdmins } from '../hooks/useAdmins';
 import { sortedSeasons, seasonLabel } from '../utils/season';
 import { formatDateIL } from '../utils/format';
 import { buildDailyReadingMessage, buildWhatsAppShareUrl } from '../utils/whatsapp';
@@ -12,9 +13,11 @@ const SOURCE_LABEL = {
 };
 
 export function AdminReadingsList({ readings, limit = 15 }) {
+  const { admins } = useAdmins();
   const [deletingId, setDeletingId] = useState(null);
   const [seasonFilter, setSeasonFilter] = useState('all');
   const [showAll, setShowAll] = useState(false);
+  const [updatingId, setUpdatingId] = useState(null);
 
   const seasons = useMemo(
     () => sortedSeasons([...new Set(readings.map((r) => r.season))]).reverse(),
@@ -33,6 +36,15 @@ export function AdminReadingsList({ readings, limit = 15 }) {
       await deleteDoc(doc(db, 'readings', date));
     } finally {
       setDeletingId(null);
+    }
+  }
+
+  async function handleEnteredByChange(date, value) {
+    setUpdatingId(date);
+    try {
+      await updateDoc(doc(db, 'readings', date), { enteredBy: value || null });
+    } finally {
+      setUpdatingId(null);
     }
   }
 
@@ -89,7 +101,25 @@ export function AdminReadingsList({ readings, limit = 15 }) {
               <td>
                 <span className="source-tag">{SOURCE_LABEL[r.source] || r.source}</span>
               </td>
-              <td>{r.enteredBy || '—'}</td>
+              <td>
+                <select
+                  className="entered-by-select"
+                  value={r.enteredBy || ''}
+                  disabled={updatingId === r.date}
+                  onChange={(e) => handleEnteredByChange(r.date, e.target.value)}
+                  aria-label={`שינוי מי הזין את רשומת ${formatDateIL(r.date)}`}
+                >
+                  <option value="">—</option>
+                  {r.enteredBy && !admins.some((a) => a.email === r.enteredBy) && (
+                    <option value={r.enteredBy}>{r.enteredBy}</option>
+                  )}
+                  {admins.map((a) => (
+                    <option key={a.id} value={a.email}>
+                      {a.email}
+                    </option>
+                  ))}
+                </select>
+              </td>
               <td>
                 <button
                   className="delete-btn"
