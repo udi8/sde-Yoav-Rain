@@ -123,6 +123,16 @@ bdi,
   unicode-bidi: isolate;
 }
 
+/* Recharts' auto-generated axis/label <text> elements sit inside the
+   page's RTL direction and can have their digits visually reordered by
+   the browser's bidi algorithm (DOM content stays correct — "600" — but
+   paints reversed on some engines). Scoped to actual SVG text nodes only,
+   not the HTML tooltip overlay, so Hebrew tooltip text keeps its normal
+   RTL reading order. */
+svg text {
+  direction: ltr;
+}
+
 .field-header {
   display: block;
   width: 100%;
