@@ -8,6 +8,7 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(undefined); // undefined = loading, null = signed out
   const [isAdmin, setIsAdmin] = useState(false);
+  const [adminProfile, setAdminProfile] = useState(null);
   const [adminLoading, setAdminLoading] = useState(true);
 
   useEffect(() => onAuthStateChanged(auth, setUser), []);
@@ -18,6 +19,7 @@ export function AuthProvider({ children }) {
     if (user === undefined) return; // auth state not resolved yet
     if (!user?.email) {
       setIsAdmin(false);
+      setAdminProfile(null);
       setAdminLoading(false);
       return;
     }
@@ -27,10 +29,12 @@ export function AuthProvider({ children }) {
       ref,
       (snap) => {
         setIsAdmin(snap.exists());
+        setAdminProfile(snap.exists() ? { id: snap.id, ...snap.data() } : null);
         setAdminLoading(false);
       },
       () => {
         setIsAdmin(false);
+        setAdminProfile(null);
         setAdminLoading(false);
       }
     );
@@ -40,6 +44,7 @@ export function AuthProvider({ children }) {
     user: user ?? null,
     loading: user === undefined || adminLoading,
     isAdmin,
+    adminProfile,
     signIn: () => signInWithPopup(auth, googleProvider),
     signOutUser: () => signOut(auth),
   };

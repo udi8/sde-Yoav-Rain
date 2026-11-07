@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import { seasonForDate, seasonLabel } from '../utils/season';
 import { formatDateIL } from '../utils/format';
+import { formatAdminName } from '../utils/adminName';
 import { buildDailyReadingMessage, buildWhatsAppShareUrl } from '../utils/whatsapp';
 import { DateField } from './DateField';
 
@@ -14,7 +15,7 @@ function todayISO() {
 }
 
 export function AdminDailyForm({ readings }) {
-  const { user } = useAuth();
+  const { user, adminProfile } = useAuth();
   const [date, setDate] = useState(todayISO());
   const [amountMm, setAmountMm] = useState('');
   const [cumulativeOverride, setCumulativeOverride] = useState('');
@@ -52,7 +53,7 @@ export function AdminDailyForm({ readings }) {
       cumulativeMm,
       note: null,
       source: 'manual',
-      enteredBy: user?.displayName || user?.email || null,
+      enteredBy: formatAdminName(adminProfile) || user?.displayName || user?.email || null,
     });
     return cumulativeMm;
   }

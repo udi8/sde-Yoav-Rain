@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import { seasonForDate } from '../utils/season';
 import { formatDateIL } from '../utils/format';
+import { formatAdminName } from '../utils/adminName';
 import { DateField } from './DateField';
 
 // Free-date entry for pre-2021 data (1991 paper records, not yet
@@ -11,7 +12,7 @@ import { DateField } from './DateField';
 // there's no reliable "previous reading" to build on for old, possibly
 // gappy, paper records — so it's typed in directly.
 export function AdminHistoricalForm() {
-  const { user } = useAuth();
+  const { user, adminProfile } = useAuth();
   const [date, setDate] = useState('');
   const [amountMm, setAmountMm] = useState('');
   const [cumulativeMm, setCumulativeMm] = useState('');
@@ -33,7 +34,7 @@ export function AdminHistoricalForm() {
         cumulativeMm: Number(cumulativeMm),
         note: note || null,
         source: 'historical',
-        enteredBy: user?.displayName || user?.email || null,
+        enteredBy: formatAdminName(adminProfile) || user?.displayName || user?.email || null,
       });
       setMessage({ type: 'ok', text: `נשמר נתון היסטורי: ${formatDateIL(date)}` });
       setDate('');

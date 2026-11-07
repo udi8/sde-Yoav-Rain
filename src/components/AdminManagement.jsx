@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { deleteDoc, doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { deleteDoc, doc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import { useAdmins } from '../hooks/useAdmins';
@@ -13,6 +13,9 @@ export function AdminManagement() {
   const [saving, setSaving] = useState(false);
   const [removingId, setRemovingId] = useState(null);
   const [message, setMessage] = useState(null);
+  // Names are edited inline per-row and saved on blur rather than on every
+  // keystroke — this holds in-progress edits until they're committed.
+  const [nameEdits, setNameEdits] = useState({});
 
   async function handleAdd(e) {
     e.preventDefault();
@@ -50,6 +53,18 @@ export function AdminManagement() {
     }
   }
 
+  function handleNameFieldChange(id, field, value) {
+    setNameEdits((prev) => ({ ...prev, [id]: { ...prev[id], [field]: value } }));
+  }
+
+  async function handleNameFieldBlur(admin, field) {
+    const edit = nameEdits[admin.id];
+    if (!edit || !(field in edit)) return; // nothing changed in this field
+    const value = edit[field].trim();
+    if (value === (admin[field] || '')) return; // unchanged, skip the write
+    await updateDoc(doc(db, 'admins', admin.id), { [field]: value || null });
+  }
+
   return (
     <div className="admin-management">
       <form className="admin-form" onSubmit={handleAdd}>
@@ -78,6 +93,8 @@ export function AdminManagement() {
           <thead>
             <tr>
               <th>אימייל</th>
+              <th>שם פרטי</th>
+              <th>שם משפחה</th>
               <th></th>
             </tr>
           </thead>
@@ -85,11 +102,35 @@ export function AdminManagement() {
             {admins.map((a) => {
               const isSelf = a.id === user?.email?.toLowerCase();
               const isLast = admins.length <= 1;
+              const firstName = nameEdits[a.id]?.firstName ?? a.firstName ?? '';
+              const lastName = nameEdits[a.id]?.lastName ?? a.lastName ?? '';
               return (
                 <tr key={a.id}>
                   <td>
                     {a.email}
                     {isSelf && <span className="source-tag">אתה</span>}
+                  </td>
+                  <td>
+                    <input
+                      className="admin-name-input"
+                      type="text"
+                      value={firstName}
+                      placeholder="שם פרטי"
+                      onChange={(e) => handleNameFieldChange(a.id, 'firstName', e.target.value)}
+                      onBlur={() => handleNameFieldBlur(a, 'firstName')}
+                      aria-label={`שם פרטי של ${a.email}`}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      className="admin-name-input"
+                      type="text"
+                      value={lastName}
+                      placeholder="שם משפחה"
+                      onChange={(e) => handleNameFieldChange(a.id, 'lastName', e.target.value)}
+                      onBlur={() => handleNameFieldBlur(a, 'lastName')}
+                      aria-label={`שם משפחה של ${a.email}`}
+                    />
                   </td>
                   <td>
                     <button
@@ -107,7 +148,7 @@ export function AdminManagement() {
             })}
             {!loading && admins.length === 0 && (
               <tr>
-                <td colSpan={2} className="empty-row">
+                <td colSpan={4} className="empty-row">
                   אין עדיין מנהלים
                 </td>
               </tr>

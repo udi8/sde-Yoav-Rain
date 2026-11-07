@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { useAdmins } from '../hooks/useAdmins';
 import { sortedSeasons, seasonLabel } from '../utils/season';
 import { formatDateIL } from '../utils/format';
+import { formatAdminName } from '../utils/adminName';
 import { buildDailyReadingMessage, buildWhatsAppShareUrl } from '../utils/whatsapp';
 
 const SOURCE_LABEL = {
@@ -110,12 +111,12 @@ export function AdminReadingsList({ readings, limit = 15 }) {
                   aria-label={`שינוי מי הזין את רשומת ${formatDateIL(r.date)}`}
                 >
                   <option value="">—</option>
-                  {r.enteredBy && !admins.some((a) => a.email === r.enteredBy) && (
+                  {r.enteredBy && !admins.some((a) => formatAdminName(a) === r.enteredBy) && (
                     <option value={r.enteredBy}>{r.enteredBy}</option>
                   )}
                   {admins.map((a) => (
-                    <option key={a.id} value={a.email}>
-                      {a.email}
+                    <option key={a.id} value={formatAdminName(a)}>
+                      {formatAdminName(a)}
                     </option>
                   ))}
                 </select>
