@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
 }
 
 .admin-header {
@@ -13,20 +14,28 @@
   flex-wrap: wrap;
 }
 
+.admin-title {
+  min-width: 0;
+}
+
 .admin-header h1 {
   font-size: 34px;
   color: var(--green);
+  overflow-wrap: anywhere;
 }
 
 .admin-user {
   color: var(--ink-muted);
   font-size: 13px;
   margin-top: 4px;
+  overflow-wrap: anywhere;
 }
 
 .admin-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  min-width: 0;
 }
 
 /* Plain text tabs with an underline on the active one — no pill/bar

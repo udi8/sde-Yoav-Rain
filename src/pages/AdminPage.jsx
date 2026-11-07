@@ -19,7 +19,7 @@ export function AdminPage() {
       <FieldHeader height={80} />
       <div className="container admin-page-body">
       <header className="admin-header">
-        <div>
+        <div className="admin-title">
           <h1>ניהול מד-גשם</h1>
           <p className="admin-user">מחובר כ-{user?.email}</p>
         </div>

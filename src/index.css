@@ -62,10 +62,18 @@
   box-sizing: border-box;
 }
 
+/* overflow-x:hidden is a blanket safety net at the page root: several
+   real-device bugs on this project turned out to be some child's
+   un-shrinkable content (a long flex item, a wide table, an unbroken
+   email address) pushing the whole page wider than the viewport —
+   invisible in sandboxed testing, only visible on an actual phone. No
+   matter what the next such cause turns out to be, it can no longer
+   force horizontal scroll on the page itself. */
 html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
