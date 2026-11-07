@@ -1,5 +1,10 @@
+/* padding-top/bottom only — NOT the padding shorthand. This element also
+   carries the .container class (for its 0 20px side padding); a shorthand
+   here would reset left/right to 0 and wipe that out, since this rule
+   loads after .container's and wins the tie on equal specificity. */
 .admin-page-body {
-  padding: 24px 0 60px;
+  padding-top: 24px;
+  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
   gap: 24px;
