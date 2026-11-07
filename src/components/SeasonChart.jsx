@@ -113,7 +113,7 @@ export function SeasonChart({ season, readings }) {
             fill="var(--accent-soft)"
             strokeWidth={2.5}
             connectNulls
-            dot={false}
+            dot={{ r: 3, strokeWidth: 0, fill: 'var(--rain)' }}
             activeDot={{ r: 4 }}
           />
           <Line
