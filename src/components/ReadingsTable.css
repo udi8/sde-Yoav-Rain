@@ -1,5 +1,5 @@
 .readings-card {
-  padding: 24px 12px;
+  padding: 10px;
 }
 
 .readings-card-header {
@@ -8,25 +8,45 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 0 16px 12px;
+  padding: 0 6px 8px;
 }
 
 .readings-card-header h3 {
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
 }
 
 .readings-card-total {
-  font-size: 15px;
-  color: var(--text-muted);
+  font-size: 14px;
+  color: var(--ink-muted);
 }
 
 .readings-card-total strong {
-  font-size: 20px;
+  font-family: 'Karantina', cursive;
+  font-size: 24px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--green);
 }
 
 .readings-card .readings-list {
-  padding: 0 4px;
+  padding: 0;
+}
+
+.readings-card .readings-table th,
+.readings-card .readings-table td {
+  white-space: normal;
+}
+
+.readings-card .readings-table td:nth-child(4) {
+  font-family: 'Amatic SC', cursive;
+  font-size: 22px;
+  color: var(--signature);
+}
+
+.readings-card .readings-table td:nth-child(2),
+.readings-card .readings-table td:nth-child(3) {
+  font-family: 'Karantina', cursive;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--green);
 }

@@ -1,13 +1,14 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useReadings } from '../hooks/useReadings';
-import { StatCard } from '../components/StatCard';
+import { FieldHeader } from '../components/FieldHeader';
+import { RainGauge } from '../components/RainGauge';
 import { SeasonChart } from '../components/SeasonChart';
 import { SeasonCompareChart } from '../components/SeasonCompareChart';
 import { ReadingsTable } from '../components/ReadingsTable';
 import { currentSeason, seasonLabel, sortedSeasons } from '../utils/season';
 import { FULL_SEASON_AVERAGE_MM } from '../utils/historicalAverage';
-import { formatDateIL } from '../utils/format';
+import { formatWeekdayShortIL } from '../utils/format';
 import './PublicPage.css';
 
 export function PublicPage() {
@@ -71,12 +72,17 @@ export function PublicPage() {
 
   return (
     <div className="public-page">
+      <FieldHeader height={140} />
+
       <header className="page-header">
         <div className="container header-row">
-          <div>
-            <h1>מד-גשם שדה יואב</h1>
-            <p className="subtitle">מדידות יומיות של משקעים</p>
+          <div className="title-block">
+            <span className="kicker">★ מד הגשם ★</span>
+            <h1>שדה יואב</h1>
           </div>
+          <span className="season-badge">חורף {seasonLabel(nowSeason)}</span>
+        </div>
+        <div className="container">
           <Link to="/admin/login" className="admin-link">
             כניסת מנהלים
           </Link>
@@ -89,39 +95,62 @@ export function PublicPage() {
 
         {!loading && !error && (
           <>
-            <section className="stats-grid">
-              <StatCard
-                label="גשם היום"
-                value={latest ? latest.amountMm : '—'}
-                unit="מ״מ"
-                sub={
-                  latest
-                    ? [formatDateIL(latest.date), latest.enteredBy && `הוזן ע״י ${latest.enteredBy}`]
-                        .filter(Boolean)
-                        .join(' · ')
-                    : 'אין נתונים עדיין'
-                }
-              />
-              <StatCard
-                label={`מצטבר לעונת ${seasonLabel(nowSeason)}`}
-                value={latest ? latest.cumulativeMm : '—'}
-                unit="מ״מ"
-                sub={pctOfAvg !== null ? `${pctOfAvg}% מהממוצע הרב-שנתי` : undefined}
-              />
-              <StatCard
-                label="ממוצע רב-שנתי לעונה"
-                value={FULL_SEASON_AVERAGE_MM}
-                unit="מ״מ"
-                sub={
-                  actualAverage
-                    ? `ממוצע בפועל (${actualAverage.count} עונות במערכת): ${
-                        Math.round(actualAverage.avg * 10) / 10
-                      } מ״מ (${actualAverage.diff >= 0 ? '+' : ''}${
-                        Math.round(actualAverage.diff * 10) / 10
-                      })`
-                    : undefined
-                }
-              />
+            <section className="today-tag card">
+              <div className="today-tag-top">
+                <span className="kicker">
+                  {latest ? `גשם היום · ${formatWeekdayShortIL(latest.date)}` : 'גשם היום'}
+                </span>
+                <span className="punch-hole" aria-hidden="true" />
+              </div>
+
+              {latest ? (
+                <>
+                  <div className="today-tag-hero">
+                    <div className="today-tag-main">
+                      <div className="today-tag-amount">
+                        <span className="today-amount-num">
+                          <bdi>{latest.amountMm}</bdi>
+                        </span>
+                        <span className="today-amount-unit">מ״מ</span>
+                      </div>
+                      <div className="today-tag-meta">
+                        <span>הוזן ע״י</span>
+                        <span className="signature">{latest.enteredBy || '—'}</span>
+                      </div>
+                    </div>
+                    <RainGauge total={latest.cumulativeMm} average={FULL_SEASON_AVERAGE_MM} />
+                  </div>
+
+                  <div className="today-tag-stats">
+                    <div className="today-stat">
+                      <span className="today-stat-label">מצטבר לעונה</span>
+                      <span className="today-stat-value">
+                        <bdi>{latest.cumulativeMm}</bdi> <small>מ״מ</small>
+                      </span>
+                    </div>
+                    <div className="today-stat today-stat-accent">
+                      <span className="today-stat-label">מהממוצע ({FULL_SEASON_AVERAGE_MM})</span>
+                      <span className="today-stat-value">
+                        <bdi>{pctOfAvg}</bdi>%
+                      </span>
+                    </div>
+                  </div>
+
+                  {actualAverage && (
+                    <p className="today-tag-note">
+                      ממוצע בפועל ({actualAverage.count} עונות במערכת):{' '}
+                      <bdi>{Math.round(actualAverage.avg * 10) / 10}</bdi> מ״מ (
+                      <bdi>
+                        {actualAverage.diff >= 0 ? '+' : ''}
+                        {Math.round(actualAverage.diff * 10) / 10}
+                      </bdi>
+                      )
+                    </p>
+                  )}
+                </>
+              ) : (
+                <p className="today-empty">אין עדיין נתונים לעונה זו</p>
+              )}
             </section>
 
             <section className="season-select-row">
@@ -139,11 +168,11 @@ export function PublicPage() {
               </select>
             </section>
 
-            <section>
+            <section className="season-chart-section">
               <SeasonChart season={activeSeason} readings={readings} />
             </section>
 
-            <section>
+            <section className="compare-section">
               <SeasonCompareChart
                 readings={readings}
                 currentSeason={nowSeason}
@@ -152,7 +181,7 @@ export function PublicPage() {
               />
             </section>
 
-            <section ref={readingsTableRef}>
+            <section className="readings-section" ref={readingsTableRef}>
               <ReadingsTable
                 readings={readings.filter((r) => r.season === activeSeason)}
                 seasonLabel={seasonLabel(activeSeason)}

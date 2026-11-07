@@ -69,25 +69,26 @@ export function SeasonChart({ season, readings }) {
     : `אין עדיין נתונים לעונת ${seasonLabel(season)}.`;
 
   return (
-    <div className="season-chart card">
+    <div className="season-chart">
       <div className="season-chart-header">
         <h3>עונת {seasonLabel(season)}</h3>
+        <span className="season-chart-sub">מצטבר, מ״מ</span>
       </div>
       <p className="sr-only">{chartSummary}</p>
       <div aria-hidden="true">
-      <ResponsiveContainer width="100%" height={320}>
+      <ResponsiveContainer width="100%" height={280}>
         <ComposedChart data={data} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--grid)" vertical={false} />
           <XAxis
             dataKey="day"
             type="number"
             domain={[0, 365]}
             ticks={ticks.map((t) => t.day)}
             tickFormatter={(day) => ticks.find((t) => t.day === day)?.label || ''}
-            stroke="var(--text-muted)"
-            fontSize={12}
+            stroke="var(--ink)"
+            tick={{ fontFamily: 'Karantina', fontSize: 16, fill: 'var(--ink)' }}
           />
-          <YAxis stroke="var(--text-muted)" fontSize={12} width={44} />
+          <YAxis stroke="var(--ink)" tick={{ fontFamily: 'Karantina', fontSize: 14, fill: 'var(--ink)' }} width={40} />
           <Tooltip
             labelFormatter={(day) => {
               const p = data.find((d) => d.day === day);
@@ -98,28 +99,31 @@ export function SeasonChart({ season, readings }) {
               name === 'actualMm' ? 'מצטבר בפועל' : 'ממוצע רב-שנתי',
             ]}
             contentStyle={{
-              background: 'var(--surface)',
-              border: '1px solid var(--border)',
-              borderRadius: 10,
+              background: 'var(--tag)',
+              border: '1.5px dashed var(--earth)',
+              borderRadius: 2,
+              fontFamily: 'Assistant, sans-serif',
             }}
           />
           <Legend
             formatter={(value) => (value === 'actualMm' ? 'מצטבר בפועל' : 'ממוצע רב-שנתי')}
+            wrapperStyle={{ fontSize: 12 }}
           />
           <Area
             type="monotone"
             dataKey="actualMm"
-            stroke="var(--rain)"
-            fill="var(--accent-soft)"
-            strokeWidth={2.5}
+            stroke="var(--green)"
+            fill="var(--green)"
+            fillOpacity={0.88}
+            strokeWidth={2}
             connectNulls
-            dot={{ r: 3, strokeWidth: 0, fill: 'var(--rain)' }}
-            activeDot={{ r: 4 }}
+            dot={{ r: 3, strokeWidth: 0, fill: 'var(--green)' }}
+            activeDot={{ r: 5 }}
           />
           <Line
             type="monotone"
             dataKey="avgMm"
-            stroke="var(--rain-avg)"
+            stroke="var(--mustard)"
             strokeWidth={2}
             strokeDasharray="6 4"
             dot={false}
@@ -127,6 +131,7 @@ export function SeasonChart({ season, readings }) {
         </ComposedChart>
       </ResponsiveContainer>
       </div>
+      <span className="season-chart-caption">ירוק: השנה · חרדל מקווקו: ממוצע רב-שנתי</span>
     </div>
   );
 }

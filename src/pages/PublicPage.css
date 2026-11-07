@@ -5,57 +5,202 @@
 }
 
 .page-header {
-  padding: 32px 0 24px;
+  padding: 16px 0 0;
 }
 
 .header-row {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
 }
 
-.page-header h1 {
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+.title-block {
+  display: flex;
+  flex-direction: column;
 }
 
-.subtitle {
-  color: var(--text-muted);
+.kicker {
+  font-family: 'Karantina', cursive;
+  font-weight: 700;
   font-size: 15px;
-  margin-top: 6px;
+  letter-spacing: 0.18em;
+  color: var(--earth);
+}
+
+.page-header h1 {
+  font-size: 48px;
+  line-height: 0.85;
+  color: var(--green);
+}
+
+.season-badge {
+  font-family: 'Karantina', cursive;
+  font-weight: 700;
+  font-size: 20px;
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  padding: 2px 10px 0;
+  white-space: nowrap;
 }
 
 .admin-link {
+  display: inline-block;
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--ink-muted);
   text-decoration: none;
-  padding: 8px 4px;
+  padding: 10px 4px;
 }
 
 .admin-link:hover {
-  color: var(--accent);
+  color: var(--green);
 }
 
 .public-page main {
   flex: 1;
+  padding-top: 20px;
   padding-bottom: 48px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 
-.stats-grid {
+/* "Today" hero tag */
+.today-tag {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.today-tag-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.today-tag-top .kicker {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--earth);
+  font-family: 'Assistant', sans-serif;
+}
+
+.punch-hole {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+
+.today-tag-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.today-tag-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.today-tag-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.today-amount-num {
+  font-family: 'Karantina', cursive;
+  font-weight: 700;
+  font-size: clamp(72px, 24vw, 120px);
+  line-height: 0.78;
+  color: var(--green);
+}
+
+.today-amount-unit {
+  font-family: 'Karantina', cursive;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.today-tag-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.signature {
+  font-family: 'Amatic SC', cursive;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--signature);
+}
+
+.today-tag-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+}
+
+.today-stat {
+  padding: 10px 14px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.today-stat:first-child {
+  border-left: 2px solid var(--ink);
+  padding-left: 14px;
+}
+
+.today-stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.today-stat-value {
+  font-family: 'Karantina', cursive;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.1;
+}
+
+.today-stat-value small {
+  font-size: 18px;
+}
+
+.today-stat-accent .today-stat-value {
+  color: var(--earth);
+}
+
+.today-tag-note {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-family: 'Assistant', sans-serif;
+}
+
+.today-empty {
+  color: var(--ink-muted);
+  padding: 20px 0;
 }
 
 .season-select-row {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.season-select-row label {
+  font-weight: 700;
 }
 
 .season-select-row select {
@@ -66,29 +211,43 @@
 
 .loading,
 .error-msg {
-  color: var(--text-muted);
+  color: var(--ink-muted);
   padding: 40px 0;
   text-align: center;
 }
 
 .error-msg {
-  color: var(--danger);
+  color: var(--earth);
 }
 
 .page-footer {
   padding: 24px 0 40px;
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-size: 13px;
-  border-top: 1px solid var(--border);
+  border-top: 2px dashed var(--rule-soft);
   margin-top: 24px;
 }
 
 @media (max-width: 640px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .page-header h1 {
+    font-size: 38px;
+  }
+}
+
+@media (min-width: 900px) {
+  .public-page main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 24px;
+    align-items: start;
   }
 
-  .page-header h1 {
-    font-size: 26px;
+  .public-page main > * {
+    grid-column: 1 / -1;
+  }
+
+  .public-page main > .season-chart-section,
+  .public-page main > .compare-section {
+    grid-column: span 1;
   }
 }

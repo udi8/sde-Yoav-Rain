@@ -99,7 +99,7 @@ export function AdminManagement() {
                       aria-label={`הסרת ${a.email} ממנהלים`}
                       title={isLast ? 'לא ניתן להסיר את המנהל האחרון' : isSelf ? 'לא ניתן להסיר את עצמך' : undefined}
                     >
-                      {removingId === a.id ? '…' : '🗑'}
+                      {removingId === a.id ? '…' : 'הסרה'}
                     </button>
                   </td>
                 </tr>

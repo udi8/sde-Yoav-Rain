@@ -97,7 +97,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
                   aria-label={`שליחת רשומת ${formatDateIL(r.date)} בוואטסאפ`}
                   title="שליחה בוואטסאפ"
                 >
-                  ↗
+                  שלח
                 </button>
               </td>
               <td>
@@ -107,7 +107,7 @@ export function AdminReadingsList({ readings, limit = 15 }) {
                   disabled={deletingId === r.date}
                   aria-label={`מחיקת רשומת ${formatDateIL(r.date)}`}
                 >
-                  {deletingId === r.date ? '…' : '🗑'}
+                  {deletingId === r.date ? '…' : 'מחיקה'}
                 </button>
               </td>
             </tr>

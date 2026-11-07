@@ -1,31 +1,59 @@
 :root {
-  --bg: #fbfbfd;
-  --surface: #ffffff;
-  --text: #1d1d1f;
-  --text-muted: #6e6e73;
-  --border: #e5e5ea;
-  --accent: #0071e3;
-  --accent-soft: #e8f2fd;
-  --rain: #3b82c4;
-  --rain-avg: #b8b8bd;
-  --danger: #d64545;
-  --radius: 16px;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+  /* new palette — "field + tag" */
+  --bg: #e3d5b4;
+  --tag: #f4ecd9;
+  --tag-inner: #fbf6ea;
+  --weave: rgba(90, 66, 30, 0.06);
+  --ink: #33251a;
+  --ink-muted: #5e4e3c;
+  --rule-soft: #a8987a;
+  --grid: #c9b790;
+  --green: #2d4527;
+  --earth: #8e3a20;
+  --mustard: #b0802e;
+  --wheat: #c9a24a;
+  --water: #4f6d7a;
+  --signature: #2c4a6b;
+  --soil: #9b7a52;
+  --soil-dark: #6b4f31;
+
+  /* old token names kept as aliases, mapped onto the new palette, so
+     every component that hasn't been touched directly still renders in
+     the new look instead of an undefined/invisible value. */
+  --surface: var(--tag);
+  --text: var(--ink);
+  --text-muted: var(--ink-muted);
+  --border: var(--rule-soft);
+  --accent: var(--green);
+  --accent-soft: var(--tag-inner);
+  --rain: var(--green);
+  --rain-avg: var(--mustard);
+  --danger: var(--earth);
+
+  --radius: 2px;
+  --stitch: 1.5px dashed var(--earth);
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #000000;
-    --surface: #1c1c1e;
-    --text: #f5f5f7;
-    --text-muted: #98989d;
-    --border: #2c2c2e;
-    --accent: #2997ff;
-    --accent-soft: #0d2a44;
-    --rain: #5aa9e6;
-    --rain-avg: #4b4b4d;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --bg: #1b1812;
+    --tag: #27221a;
+    --tag-inner: #1f1b14;
+    --weave: rgba(255, 240, 210, 0.035);
+    --ink: #ede3cc;
+    --ink-muted: #b3a68c;
+    --rule-soft: #4a4234;
+    --grid: #3a3328;
+    --green: #9dbb84;
+    --earth: #e08a66;
+    --mustard: #d8ae5a;
+    --wheat: #d8b45a;
+    --water: #7fa3b3;
+    --signature: #9cc0e6;
+
+    --shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
     color-scheme: dark;
   }
 }
@@ -41,10 +69,11 @@ body {
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI',
-    'Helvetica Neue', Arial, 'Rubik', sans-serif;
+  background-color: var(--bg);
+  background-image: repeating-linear-gradient(0deg, var(--weave) 0, var(--weave) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, var(--weave) 0, var(--weave) 1px, transparent 1px, transparent 4px);
+  color: var(--ink);
+  font-family: 'Assistant', -apple-system, 'Segoe UI', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   direction: rtl;
 }
@@ -62,26 +91,64 @@ p {
   margin: 0;
 }
 
+h2,
+h3 {
+  font-family: 'Karantina', cursive;
+  font-weight: 700;
+}
+
 a {
-  color: inherit;
+  color: var(--green);
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 button {
   font-family: inherit;
 }
 
+/* Numbers must never flip order inside RTL text. */
+bdi,
+.num {
+  unicode-bidi: isolate;
+}
+
+.field-header {
+  display: block;
+  width: 100%;
+}
+
 .container {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
+/* The stitched "tag" card — cream surface, dashed inset border, a single
+   flat shadow line (no soft/blurred shadows per the design brief). */
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  position: relative;
+  background: var(--tag);
+  border: none;
+  border-radius: 4px;
   box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: var(--stitch);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.card > * {
+  position: relative;
 }
 
 .btn {
@@ -90,18 +157,22 @@ button {
   justify-content: center;
   gap: 8px;
   min-height: 44px;
-  padding: 12px 22px;
-  border-radius: 980px;
-  border: none;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: 2px solid var(--ink);
+  font-family: 'Karantina', cursive;
+  font-size: 20px;
+  font-weight: 700;
   cursor: pointer;
   transition: opacity 0.15s ease, background-color 0.15s ease;
+  background: transparent;
+  color: var(--ink);
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #fff;
+  background: var(--green);
+  color: var(--tag);
+  border-color: var(--green);
 }
 
 .btn-primary:hover {
@@ -110,12 +181,12 @@ button {
 
 .btn-secondary {
   background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--border);
+  color: var(--green);
+  border-color: var(--green);
 }
 
 .btn-secondary:hover {
-  background: var(--accent-soft);
+  background: var(--tag-inner);
 }
 
 .btn:disabled {
@@ -125,13 +196,14 @@ button {
 
 input,
 select {
-  font-family: inherit;
+  font-family: 'Assistant', sans-serif;
   font-size: 16px;
+  font-weight: 600;
   padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
+  border-radius: 2px;
+  border: 2px solid var(--ink);
+  background: var(--tag-inner);
+  color: var(--ink);
   width: 100%;
   min-width: 0;
   max-width: 100%;
@@ -154,17 +226,19 @@ select {
   min-height: 44px;
   min-width: 180px;
   padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
+  border-radius: 2px;
+  border: 2px solid var(--ink);
+  background: var(--tag-inner);
+  color: var(--ink);
+  font-family: 'Assistant', sans-serif;
+  font-weight: 600;
   font-size: 16px;
   pointer-events: none;
 }
 
 .date-field:has(input:focus-visible) .date-field-display {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
 }
 
 .date-field input[type='date'] {
@@ -183,14 +257,14 @@ select {
 
 input:focus,
 select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
 }
 
 label {
-  font-size: 14px;
-  color: var(--text-muted);
-  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-weight: 700;
 }
 
 /* Shared table primitives — used by the admin readings/admins tables and
@@ -207,29 +281,33 @@ label {
 
 .readings-table th,
 .readings-table td {
-  padding: 8px 6px;
+  padding: 10px 8px;
   text-align: start;
-  border-top: 1px solid var(--border);
+  border-top: 1px dashed var(--rule-soft);
   white-space: nowrap;
 }
 
-.readings-table th {
-  color: var(--text-muted);
-  font-weight: 500;
+.readings-table thead th {
+  border-top: none;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink-muted);
+  font-weight: 800;
+  font-size: 12px;
 }
 
 .source-tag {
   font-size: 11px;
-  color: var(--text-muted);
-  background: var(--bg);
-  border: 1px solid var(--border);
+  font-weight: 700;
+  color: var(--ink-muted);
+  background: var(--tag-inner);
+  border: 1px solid var(--rule-soft);
   padding: 2px 8px;
-  border-radius: 980px;
+  border-radius: 2px;
 }
 
 .empty-row {
   text-align: center;
-  color: var(--text-muted);
+  color: var(--ink-muted);
   padding: 20px 0;
 }
 
@@ -246,39 +324,4 @@ label {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-/* Consistent keyboard focus ring across all interactive elements, instead
-   of relying on inconsistent browser defaults on custom-styled buttons. */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-@media (prefers-contrast: more) {
-  :root {
-    --text-muted: #55555a;
-    --border: #b8b8bd;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --text-muted: #c2c2c7;
-      --border: #55555a;
-    }
-  }
 }

@@ -16,12 +16,12 @@
 }
 
 .admin-login-card h1 {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 34px;
+  color: var(--green);
 }
 
 .admin-login-sub {
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-size: 14px;
   margin-top: -8px;
 }
@@ -31,10 +31,10 @@
   flex-direction: column;
   gap: 12px;
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--ink-muted);
 }
 
 .error-msg {
-  color: var(--danger);
+  color: var(--earth);
   font-size: 13px;
 }

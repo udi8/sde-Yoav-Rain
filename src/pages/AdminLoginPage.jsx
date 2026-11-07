@@ -29,7 +29,7 @@ export function AdminLoginPage() {
 
         {!user && (
           <button
-            className="btn btn-primary"
+            className="btn btn-secondary"
             onClick={() => signIn().catch((e) => setError(e.message))}
           >
             כניסה עם Google

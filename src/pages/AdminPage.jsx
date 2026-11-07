@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useReadings } from '../hooks/useReadings';
+import { FieldHeader } from '../components/FieldHeader';
 import { AdminDailyForm } from '../components/AdminDailyForm';
 import { AdminHistoricalForm } from '../components/AdminHistoricalForm';
 import { AdminReadingsList } from '../components/AdminReadingsList';
@@ -14,7 +15,9 @@ export function AdminPage() {
   const [tab, setTab] = useState('daily');
 
   return (
-    <div className="admin-page container">
+    <div className="admin-page">
+      <FieldHeader height={80} />
+      <div className="container admin-page-body">
       <header className="admin-header">
         <div>
           <h1>ניהול מד-גשם</h1>
@@ -67,6 +70,7 @@ export function AdminPage() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

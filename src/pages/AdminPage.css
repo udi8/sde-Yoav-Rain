@@ -1,5 +1,5 @@
-.admin-page {
-  padding: 32px 24px 60px;
+.admin-page-body {
+  padding: 24px 0 60px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -14,12 +14,12 @@
 }
 
 .admin-header h1 {
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 34px;
+  color: var(--green);
 }
 
 .admin-user {
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-size: 13px;
   margin-top: 4px;
 }
@@ -29,54 +29,36 @@
   gap: 10px;
 }
 
-/* A single-row pill bar, split into two layers. Safari doesn't reliably
-   clip scrolling content to a rounded corner on the same element that
-   also has overflow-x:auto — content can visibly bleed past the curve.
-   So the rounding + clipping lives on this static outer wrapper... */
+/* Plain text tabs with an underline on the active one — no pill/bar
+   shape, so there's nothing for a narrow screen to clip or overflow. */
 .tabs-wrap {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 980px;
-  overflow: hidden;
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
 }
 
-/* ...and the actual horizontal scrolling happens on this plain-edged inner
-   element, which Safari clips correctly since it has no border-radius of
-   its own. It must never wrap: at border-radius:980px on the outer pill, a
-   wrapped multi-line bar would stretch into a broken lens/stadium shape
-   instead of a rounded rectangle — scrolling keeps it a single row. */
 .tabs {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  gap: 4px;
-  padding: 4px;
-}
-
-.tabs::-webkit-scrollbar {
-  display: none;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  border-bottom: 2px solid var(--rule-soft);
 }
 
 .tab {
   border: none;
   background: transparent;
-  flex-shrink: 0;
-  white-space: nowrap;
-  min-height: 40px;
-  padding: 10px 18px;
-  border-radius: 980px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-muted);
+  min-height: 44px;
+  padding: 0 2px 8px;
+  font-family: 'Karantina', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink-muted);
   cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
 }
 
 .tab.active {
-  background: var(--accent);
-  color: #fff;
+  color: var(--ink);
+  border-bottom-color: var(--green);
 }
 
 .admin-content {
@@ -88,13 +70,12 @@
 
 .admin-form-card,
 .admin-list-card {
-  padding: 24px;
+  padding: 20px;
   min-width: 0;
 }
 
 .admin-list-card h2 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 26px;
   margin-bottom: 12px;
 }
 
@@ -110,6 +91,16 @@
   gap: 6px;
 }
 
+/* The daily/historical rain-amount field is the thing being recorded —
+   make it read like the day's headline number, not just another input. */
+#amount,
+#h-amount {
+  font-family: 'Karantina', cursive;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .form-actions {
   display: flex;
   flex-wrap: wrap;
@@ -118,18 +109,24 @@
 
 .form-hint {
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--ink-muted);
   margin: -4px 0 4px;
 }
 
 .form-msg-ok {
-  color: #2a8f4c;
+  color: var(--green);
   font-size: 13px;
+  font-weight: 700;
+  border-inline-start: 4px solid var(--green);
+  padding-inline-start: 8px;
 }
 
 .form-msg-error {
-  color: var(--danger);
+  color: var(--earth);
   font-size: 13px;
+  font-weight: 700;
+  border-inline-start: 4px solid var(--earth);
+  padding-inline-start: 8px;
 }
 
 .readings-list-controls {
@@ -150,25 +147,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
   min-height: 36px;
+  padding: 4px 8px;
   border: none;
-  border-radius: 8px;
   background: transparent;
   cursor: pointer;
-  font-size: 15px;
-  opacity: 0.6;
-  transition: opacity 0.15s ease, background-color 0.15s ease;
+  font-family: 'Assistant', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--earth);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
 }
 
 .delete-btn:hover:not(:disabled) {
   opacity: 1;
-  background: var(--bg);
 }
 
 .delete-btn:disabled {
   cursor: not-allowed;
-  opacity: 0.3;
+  opacity: 0.4;
+  text-decoration: none;
 }
 
 .admin-management .admin-form {
@@ -199,31 +200,7 @@
     flex: 1;
   }
 
-  /* At this width the 3 tab labels no longer fit on one scrollable row —
-     the row overflowed and, with the scrollbar hidden, the last tab's
-     text got silently clipped instead of being reachable by scrolling.
-     A 3-column grid spanning the full width removes the overflow
-     entirely: each tab gets an equal share of the space and wraps to a
-     second line if needed, so the full label is always visible. */
-  .tabs-wrap {
-    width: 100%;
-    border-radius: 16px;
-    overflow: visible;
-  }
-
-  .tabs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    overflow-x: visible;
-  }
-
   .tab {
-    flex-shrink: initial;
-    white-space: normal;
-    line-height: 1.25;
-    padding: 8px 6px;
-    font-size: 12.5px;
-    border-radius: 12px;
-    text-align: center;
+    font-size: 20px;
   }
 }
