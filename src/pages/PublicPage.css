@@ -34,6 +34,13 @@
   color: var(--green);
 }
 
+.header-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
 .season-badge {
   font-family: 'Karantina', cursive;
   font-weight: 700;
@@ -45,15 +52,21 @@
 }
 
 .admin-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
   font-size: 13px;
-  color: var(--ink-muted);
+  font-weight: 700;
+  color: var(--green);
+  border: 2px solid var(--green);
+  border-radius: 2px;
   text-decoration: none;
-  padding: 10px 4px;
+  white-space: nowrap;
 }
 
 .admin-link:hover {
-  color: var(--green);
+  background: var(--tag-inner);
 }
 
 .public-page main {

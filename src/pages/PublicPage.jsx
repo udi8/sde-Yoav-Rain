@@ -80,12 +80,12 @@ export function PublicPage() {
             <span className="kicker">★ מד הגשם ★</span>
             <h1>שדה יואב</h1>
           </div>
-          <span className="season-badge">חורף {seasonLabel(nowSeason)}</span>
-        </div>
-        <div className="container">
-          <Link to="/admin/login" className="admin-link">
-            כניסת מנהלים
-          </Link>
+          <div className="header-side">
+            <span className="season-badge">חורף {seasonLabel(nowSeason)}</span>
+            <Link to="/admin/login" className="admin-link">
+              כניסת מנהלים
+            </Link>
+          </div>
         </div>
       </header>
 
