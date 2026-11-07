@@ -26,7 +26,7 @@ export function ReadingsTable({ readings, seasonLabel }) {
               <th>תאריך</th>
               <th>גשם (מ״מ)</th>
               <th>מצטבר (מ״מ)</th>
-              <th>נמדד ע״י</th>
+              <th>הוזן ע״י</th>
             </tr>
           </thead>
           <tbody>

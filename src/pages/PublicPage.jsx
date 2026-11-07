@@ -96,7 +96,7 @@ export function PublicPage() {
                 unit="מ״מ"
                 sub={
                   latest
-                    ? [formatDateIL(latest.date), latest.enteredBy && `נמדד ע״י ${latest.enteredBy}`]
+                    ? [formatDateIL(latest.date), latest.enteredBy && `הוזן ע״י ${latest.enteredBy}`]
                         .filter(Boolean)
                         .join(' · ')
                     : 'אין נתונים עדיין'
