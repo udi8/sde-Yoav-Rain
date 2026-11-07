@@ -76,7 +76,7 @@ export function SeasonChart({ season, readings }) {
       </div>
       <p className="sr-only">{chartSummary}</p>
       <div aria-hidden="true">
-      <ResponsiveContainer width="100%" height={280}>
+      <ResponsiveContainer width="100%" height={280} debounce={50}>
         <ComposedChart data={data} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--grid)" vertical={false} />
           <XAxis
@@ -119,6 +119,7 @@ export function SeasonChart({ season, readings }) {
             connectNulls
             dot={{ r: 3, strokeWidth: 0, fill: 'var(--green)' }}
             activeDot={{ r: 5 }}
+            isAnimationActive={false}
           />
           <Line
             type="monotone"
@@ -127,6 +128,7 @@ export function SeasonChart({ season, readings }) {
             strokeWidth={2}
             strokeDasharray="6 4"
             dot={false}
+            isAnimationActive={false}
           />
         </ComposedChart>
       </ResponsiveContainer>

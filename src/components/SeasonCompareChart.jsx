@@ -47,7 +47,7 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
           hidden from screen readers rather than exposing an unlabeled SVG —
           aria-hidden doesn't affect the bars' onClick for mouse/touch users. */}
       <div aria-hidden="true">
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer width="100%" height={240} debounce={50}>
         <BarChart data={data} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--grid)" vertical={false} />
           <XAxis dataKey="label" stroke="var(--ink)" tick={{ fontFamily: 'Karantina', fontSize: 16, fill: 'var(--ink)' }} />
@@ -76,6 +76,7 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
             radius={0}
             onClick={(item) => onSelectSeason?.(item.season, { scroll: false })}
             style={{ cursor: onSelectSeason ? 'pointer' : undefined }}
+            isAnimationActive={false}
           >
             {data.map((d) => (
               <Cell
