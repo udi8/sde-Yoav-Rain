@@ -58,21 +58,30 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
 
   const lastIndex = Math.max(0, data.length - 1);
 
-  // The brush itself is left uncontrolled (no startIndex/endIndex props):
-  // feeding its own drag output back to it as controlled props fights its
-  // internal drag tracking and makes the handles feel stuck. Instead
-  // `range` (read from onChange) drives the slice handed to the main
-  // chart's data, and `brushKey` is bumped to force a clean remount back to
-  // the full view on reset or when the season count changes.
+  // `range` is the live zoom window — updated continuously from both the
+  // brush's onChange (handle drags, panning) and from the pinch gesture
+  // below — and it alone drives `visibleData`. The brush itself is left
+  // uncontrolled the rest of the time: feeding its own drag output back to
+  // it as controlled props on every render fights its internal drag
+  // tracking and makes the handles feel stuck. `brushSeed` is the one
+  // exception — it's only updated on a reset, a season-count change, or
+  // after a pinch ends, and it forces a clean remount (via `key`) with that
+  // range as the brush's starting position, which is safe because it stays
+  // constant between seeds rather than changing every onChange.
   const [range, setRange] = useState({ startIndex: 0, endIndex: lastIndex });
-  const [brushKey, setBrushKey] = useState(0);
+  const [brushSeed, setBrushSeed] = useState({ key: 0, startIndex: 0, endIndex: lastIndex });
   const prevLastIndex = useRef(lastIndex);
+  const rangeRef = useRef(range);
+
+  useEffect(() => {
+    rangeRef.current = range;
+  }, [range]);
 
   useEffect(() => {
     if (lastIndex === prevLastIndex.current) return;
     prevLastIndex.current = lastIndex;
     setRange({ startIndex: 0, endIndex: lastIndex });
-    setBrushKey((k) => k + 1);
+    setBrushSeed((s) => ({ key: s.key + 1, startIndex: 0, endIndex: lastIndex }));
   }, [lastIndex]);
 
   function handleBrushChange(next) {
@@ -82,8 +91,81 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
 
   function resetZoom() {
     setRange({ startIndex: 0, endIndex: lastIndex });
-    setBrushKey((k) => k + 1);
+    setBrushSeed((s) => ({ key: s.key + 1, startIndex: 0, endIndex: lastIndex }));
   }
+
+  // Two-finger pinch directly on the charts, since on a touch screen that's
+  // the gesture people reach for before noticing the brush handles below —
+  // without this, a pinch there just zooms the whole page instead. Scoped
+  // to a raw DOM listener (not onTouchMove) because stopping the page zoom
+  // requires calling preventDefault from a non-passive listener, which
+  // React's synthetic touch handlers don't allow.
+  const chartsWrapRef = useRef(null);
+  const pinchRef = useRef(null);
+
+  useEffect(() => {
+    const el = chartsWrapRef.current;
+    if (!el || data.length <= MIN_ZOOM_SEASONS) return undefined;
+
+    function touchDistance(touches) {
+      return Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+    }
+
+    function indexFromClientX(clientX) {
+      const rect = el.getBoundingClientRect();
+      const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+      return ratio * lastIndex;
+    }
+
+    function onTouchStart(e) {
+      if (e.touches.length !== 2) return;
+      const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      pinchRef.current = {
+        startDistance: touchDistance(e.touches),
+        startRange: { ...rangeRef.current },
+        midIndex: indexFromClientX(midX),
+      };
+    }
+
+    function onTouchMove(e) {
+      if (e.touches.length !== 2 || !pinchRef.current) return;
+      e.preventDefault();
+      const { startDistance, startRange, midIndex } = pinchRef.current;
+      if (startDistance < 1) return;
+      const scale = touchDistance(e.touches) / startDistance;
+      const startWidth = startRange.endIndex - startRange.startIndex + 1;
+      const newWidth = Math.min(data.length, Math.max(MIN_ZOOM_SEASONS, Math.round(startWidth / scale)));
+      const midRatio = startWidth > 1 ? (midIndex - startRange.startIndex) / (startWidth - 1) : 0.5;
+      let newStart = Math.round(midIndex - midRatio * (newWidth - 1));
+      newStart = Math.max(0, Math.min(data.length - newWidth, newStart));
+      setRange({ startIndex: newStart, endIndex: newStart + newWidth - 1 });
+    }
+
+    function endPinch() {
+      if (!pinchRef.current) return;
+      pinchRef.current = null;
+      setBrushSeed((s) => ({
+        key: s.key + 1,
+        startIndex: rangeRef.current.startIndex,
+        endIndex: rangeRef.current.endIndex,
+      }));
+    }
+
+    function onTouchEnd(e) {
+      if (e.touches.length < 2) endPinch();
+    }
+
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('touchend', onTouchEnd, { passive: true });
+    el.addEventListener('touchcancel', onTouchEnd, { passive: true });
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+      el.removeEventListener('touchend', onTouchEnd);
+      el.removeEventListener('touchcancel', onTouchEnd);
+    };
+  }, [data.length, lastIndex]);
 
   const isZoomed = range.startIndex > 0 || range.endIndex < lastIndex;
   const visibleData = data.slice(range.startIndex, range.endIndex + 1);
@@ -108,7 +190,7 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
           season-select behavior via its rows), so the chart itself stays
           hidden from screen readers rather than exposing an unlabeled SVG —
           aria-hidden doesn't affect the bars' onClick for mouse/touch users. */}
-      <div aria-hidden="true">
+      <div aria-hidden="true" ref={chartsWrapRef} className="compare-chart-area">
       <ResponsiveContainer width="100%" height={240} debounce={50}>
         <BarChart data={visibleData} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--grid)" vertical={false} />
@@ -153,10 +235,12 @@ export function SeasonCompareChart({ readings, currentSeason, selectedSeason, on
         <ResponsiveContainer width="100%" height={32} debounce={50}>
           <BarChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
             <Brush
-              key={brushKey}
+              key={brushSeed.key}
               dataKey="totalMm"
               height={28}
               travellerWidth={10}
+              startIndex={brushSeed.startIndex}
+              endIndex={brushSeed.endIndex}
               onChange={handleBrushChange}
               stroke="var(--rule-soft)"
               fill="var(--tag-inner)"

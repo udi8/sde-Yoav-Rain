@@ -24,6 +24,13 @@
   color: var(--ink-muted);
 }
 
+/* Lets a one-finger drag still scroll the page vertically, but tells the
+   browser not to handle a two-finger pinch here itself — that's handled by
+   hand in SeasonCompareChart.jsx so it zooms the chart instead of the page. */
+.compare-chart-area {
+  touch-action: pan-y;
+}
+
 .compare-zoom-row {
   display: flex;
   align-items: center;
