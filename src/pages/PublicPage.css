@@ -21,10 +21,10 @@
 
 .field-hero-logo {
   position: absolute;
-  left: 14px;
-  top: 12px;
-  width: 76px;
-  height: 76px;
+  left: 12px;
+  top: 8px;
+  width: 68px;
+  height: 68px;
   mix-blend-mode: multiply;
   transform: rotate(-7deg);
   opacity: 0.94;
@@ -44,8 +44,8 @@
   }
 
   .field-hero-logo {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
   }
 }
 
