@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useReadings } from '../hooks/useReadings';
-import { FieldHeader } from '../components/FieldHeader';
+import { FieldHero } from '../components/FieldHero';
 import { RainGauge } from '../components/RainGauge';
 import { SeasonChart } from '../components/SeasonChart';
 import { SeasonCompareChart } from '../components/SeasonCompareChart';
@@ -72,7 +72,7 @@ export function PublicPage() {
 
   return (
     <div className="public-page">
-      <FieldHeader height={140} />
+      <FieldHero />
 
       <header className="page-header">
         <div className="container header-row">

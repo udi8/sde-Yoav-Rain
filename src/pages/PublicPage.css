@@ -4,6 +4,51 @@
   min-height: 100vh;
 }
 
+/* Hero illustration — a real painterly scene, so (unlike the thin
+   field-header.svg "slice" strip) it keeps its own aspect ratio instead of
+   being stretched edge to edge; on desktop that would distort it, so it's
+   capped to 640px and centered instead. */
+.field-hero {
+  position: relative;
+  width: 100%;
+}
+
+.field-hero-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.field-hero-logo {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 76px;
+  height: 76px;
+  mix-blend-mode: multiply;
+  transform: rotate(-7deg);
+  opacity: 0.94;
+}
+
+@media (prefers-color-scheme: dark) {
+  .field-hero-logo {
+    mix-blend-mode: normal;
+    clip-path: circle(48%);
+  }
+}
+
+@media (min-width: 700px) {
+  .field-hero {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .field-hero-logo {
+    width: 96px;
+    height: 96px;
+  }
+}
+
 .page-header {
   padding: 16px 0 0;
 }
