@@ -24,6 +24,33 @@
   color: var(--ink-muted);
 }
 
+.compare-zoom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.compare-zoom-hint {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.compare-zoom-reset {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  font-family: 'Assistant', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-soft);
+  cursor: pointer;
+}
+
 .compare-table {
   width: 100%;
   border-collapse: collapse;
