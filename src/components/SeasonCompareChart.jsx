@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ResponsiveContainer,
   BarChart,
@@ -26,23 +26,32 @@ import './SeasonCompareChart.css';
 const MIN_ZOOM_SEASONS = 5;
 
 export function SeasonCompareChart({ readings, currentSeason, selectedSeason, onSelectSeason }) {
-  const bySeason = new Map();
-  for (const r of readings) {
-    const prev = bySeason.get(r.season);
-    if (!prev || r.date > prev.date) bySeason.set(r.season, r);
-  }
+  // Recharts' Brush keeps its own zoom/pan position in a Redux store keyed
+  // off this array's *identity*, resetting to the full range whenever it
+  // sees what looks like new data — so a fresh array on every render (as
+  // `readings.map(...)` would produce) silently snapped the brush back to
+  // full zoom on every re-render, making dragging feel broken/stuck. Memoing
+  // it keeps the same reference across renders that don't actually change
+  // the underlying readings.
+  const data = useMemo(() => {
+    const bySeason = new Map();
+    for (const r of readings) {
+      const prev = bySeason.get(r.season);
+      if (!prev || r.date > prev.date) bySeason.set(r.season, r);
+    }
 
-  const seasons = sortedSeasons([...bySeason.keys()]);
-  const data = seasons.map((s) => {
-    const last = bySeason.get(s);
-    return {
-      season: s,
-      label: seasonLabel(s),
-      totalMm: last.cumulativeMm,
-      ongoing: s === currentSeason,
-      pctOfAvg: Math.round((last.cumulativeMm / FULL_SEASON_AVERAGE_MM) * 100),
-    };
-  });
+    const seasons = sortedSeasons([...bySeason.keys()]);
+    return seasons.map((s) => {
+      const last = bySeason.get(s);
+      return {
+        season: s,
+        label: seasonLabel(s),
+        totalMm: last.cumulativeMm,
+        ongoing: s === currentSeason,
+        pctOfAvg: Math.round((last.cumulativeMm / FULL_SEASON_AVERAGE_MM) * 100),
+      };
+    });
+  }, [readings, currentSeason]);
 
   const maxTotal = Math.max(...data.map((d) => d.totalMm), 1);
   const recordTotal = Math.max(...data.filter((d) => !d.ongoing).map((d) => d.totalMm), 0);
